@@ -1,70 +1,73 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+INTRODUCTION: BACKEND/API
+------------
 
-## Available Scripts
+* This program's backend is built with Python.
 
-In the project directory, you can run:
+* To generate random short URL's, a variable called saved_link is defined as: "".join([random.SystemRandom().choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(10)])
 
-### `npm start`
+- This algorithm takes advantage of Python's native random and string libraries.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* To prevent duplicate links, the backend performs a database search for duplicate links. If a duplicate exists, it enters a while loop, re-rolling random links, until a unique link is generated. Though the odds of this happening are 62^10, it's always better to verify.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* To clone this repository and have a look at the code:
 
-### `npm test`
+ 1. Navigate in your preferred terminal (Windows: Command Prompt, PowerShell Linux: Bash Mac: Terminal) to the directory you would like to clone my repository to. You'll be downloading a set of files.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ 2. When you're at the proper directory, run the following command:
 
-### `npm run build`
+  $ gh repo clone Subliminal-Panda/postgres-url-shortener-backend
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+INTRODUCTION: USING THE APP
+------------
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* This program is reasonably user-friendly, so it shouldn't be too tough to dive right in!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* I recommend running it inside codesandbox for the sake of simplicity. To get to it (if you're not in codesandbox already) navigate to the following URL:
 
-### `npm run eject`
+https://codesandbox.io/s/beautiful-noyce-j499o?
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+*If you'd like to try this application outside codesandbox, skip down to CLONING THE FRONTEND REPOSITORY.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* To enter a URL, click the input field titled "Enter a new URL:" and enter your desired destination URL.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* It doesn't matter if it starts with a prefix of http://, https://, www., or even no prefix whatsoever! just make sure the URL is spelled correctly.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* If you would like to create your own custom short link, enter your desired link name in the "Custom short link (optional): input field. You can use spaces and special characters. Just keep in mind, if you write a short link that isn't short, it will overflow the display area. (It will still work, it just won't look very pretty.)
 
-## Learn More
+* Click the green "Submit Url" button. The backend will automatically recognize whether you've created a custom short link. If not, it will generate a random 10 character link instead.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* It might take just a moment to update the list with your new URL and Short Link (free databases are prioritized last... sad.)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Once your link appears, you can click either the URL itself (to the left) or the short link (on the right) to visit the URL you entered! It's magical!
 
-### Code Splitting
+* To delete a URL and its corresponding Short Link, just click the pink/red "Delete Link" button to the right, on the same row.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+REQUIREMENTS: CODE SANDBOX
+------------
 
-### Analyzing the Bundle Size
+* This module (in codesandbox) requires the following dependencies, which should be pre-loaded:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+ - react
+ - react-dom
+ - react-scripts
 
-### Making a Progressive Web App
+CLONING THE FRONTEND REPOSITORY
+------------
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+* If you'd like to try this application outside codesandbox:
 
-### Advanced Configuration
+ 1. Navigate in your preferred terminal (Windows: Command Prompt, PowerShell Linux: Bash Mac: Terminal) to the directory you would like to clone my repository to. You'll be downloading a set of files.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+ 2. When you're at the proper directory, run the following command:
 
-### Deployment
+  $ gh repo clone Subliminal-Panda/postgres-url-shortener-frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+ 3. If you don't have npm already, install it at the following link:
 
-### `npm run build` fails to minify
+ https://github.com/npm/npm/archive/refs/tags/v5.2.0.zip
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ 4. You'll also need to install scss and sass via npm. Once you've got npm, run the following commands in your terminal:
+
+  $ npm install sass
+  $ npm install compile-sass

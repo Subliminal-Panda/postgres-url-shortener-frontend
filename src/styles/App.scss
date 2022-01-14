@@ -136,6 +136,15 @@ input {
     }
 }
 
+.warning {
+    background-color: rgb(255, 190, 230);
+    border: .2rem solid rgb(255, 0, 157);
+
+    &::placeholder {
+      color: black;
+    }
+  }
+
 .delete-link {
     background-color: rgb(255, 190, 230);
     border: .2rem solid rgb(255, 0, 157);
