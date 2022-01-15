@@ -35,7 +35,6 @@ export default function AddUrl(props) {
           console.log("Error occurred during post request:", error);
         });
     } else {
-      console.log("you need to enter a URL!");
       setInputClass("warning");
       setInputUrlPlaceholder("You need a URL before you can submit.");
     }

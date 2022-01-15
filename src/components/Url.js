@@ -23,7 +23,7 @@ export default function Url(props) {
   return (
     <div className="url">
       {url ? (
-        <div className="url-and-hashed-url">
+        <h2 className="url-and-hashed-url">
           <p>URL:</p>
           <a
             className="shortened-url"
@@ -33,6 +33,7 @@ export default function Url(props) {
                 : `http://${url}`
             }
             target="_blank"
+            rel="noreferrer"
           >
             {url}
           </a>
@@ -45,13 +46,16 @@ export default function Url(props) {
                 : `http://${url}`
             }
             target="_blank"
+            rel="noreferrer"
           >
             {props.url}
           </a>
+          <p>Shrunken URL:</p>
+          <p>{`${window.location.origin}/${props.url}`}</p>
           <button className="delete-link" onClick={() => deleteKey(props.id)}>
             Delete Link
           </button>
-        </div>
+        </h2>
       ) : null}
     </div>
   );
