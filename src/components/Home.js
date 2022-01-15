@@ -17,7 +17,6 @@ export default function Home() {
 
     const separateUrlKeys = () => {
         return allUrlKeys.map(key => {
-            console.log("Key:", key)
             return(
             <div className="url-keys-wrap" key={`url${key.id}`}>
                 <Url setSubmitted={setSubmitted} route={route} url={key.stored_link} id={key.id}/>

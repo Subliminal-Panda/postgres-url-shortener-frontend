@@ -25,7 +25,6 @@ export default function AddUrl(props) {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log("submission data:", data);
           setInputClass("");
           setInputUrlPlaceholder("Enter a new URL:");
           setUrlInput("");
