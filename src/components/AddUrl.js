@@ -1,7 +1,7 @@
 ﻿import React, { useState } from "react";
 
 export default function AddUrl(props) {
-  const { handleSubmitReload } = props;
+  const { handleSubmitReload, route } = props;
 
   const [urlInput, setUrlInput] = useState("");
   const [customLinkInput, setCustomLinkInput] = useState("");
@@ -13,9 +13,7 @@ export default function AddUrl(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (urlInput !== "") {
-      setInputClass("");
-      setInputUrlPlaceholder("Enter a new URL:");
-      fetch("https://tm-url-shortener-backend.herokuapp.com/url/add", {
+      fetch(`${route}/url/add`, {
         method: "POST",
         headers: {
           "content-type": "application/json"
@@ -28,9 +26,11 @@ export default function AddUrl(props) {
         .then((res) => res.json())
         .then((data) => {
           console.log("submission data:", data);
-          handleSubmitReload();
+          setInputClass("");
+          setInputUrlPlaceholder("Enter a new URL:");
           setUrlInput("");
           setCustomLinkInput("");
+          handleSubmitReload();
         })
         .catch((error) => {
           console.log("Error occurred during post request:", error);
