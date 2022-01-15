@@ -4,8 +4,6 @@ import Url from './Url';
 
 export default function Home(props) {
 
-    const {  } = props;
-
     const [ allUrlKeys, setAllUrlKeys ] = useState([])
     const [ submitted, setSubmitted ] = useState([])
 
@@ -16,9 +14,7 @@ export default function Home(props) {
         ).catch(err => console.log("Error retrieving all URLs.", err));
     }
 
-    const handleSubmitReload = () => {
-        setSubmitted(true);
-    }
+
 
     const separateUrlKeys = () => {
         return allUrlKeys.map(key => {
@@ -30,15 +26,15 @@ export default function Home(props) {
         )})
     }
 
+    const handleSubmitReload = () => {
+        setSubmitted(true);
+    }
+
     useEffect(() => {
             getAllUrlKeys();
             separateUrlKeys();
             setSubmitted(false);
     },[submitted])
-
-    // useEffect(() => {
-    //     separateUrlKeys();
-    // },[allUrlKeys])
 
     return (
         <div className="home">
