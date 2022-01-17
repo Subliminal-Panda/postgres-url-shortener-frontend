@@ -4,7 +4,7 @@ export default function AddUrl(props) {
   const { handleSubmitReload, route } = props;
 
   const defaultURL = "URL to shorten:"
-  const defaultLink = "(Optional) custom link:"
+  const defaultLink = "Optional custom link:"
 
   const [urlInput, setUrlInput] = useState("");
   const [urlClass, setUrlClass] = useState("");
@@ -111,7 +111,7 @@ export default function AddUrl(props) {
   return (
     <form className="add-url-form" onSubmit={(event) => handleSubmit(event)}>
       <input
-        className={urlClass}
+        className={`${urlClass} url-input`}
         type="text"
         placeholder={urlPlaceholder}
         value={urlInput}
@@ -121,7 +121,7 @@ export default function AddUrl(props) {
       ></input>
       <input
         type="text"
-        className={linkClass}
+        className={`${linkClass} link-input`}
         placeholder={linkPlaceholder}
         value={linkInput}
         onFocus={() => handleFocus('link')}

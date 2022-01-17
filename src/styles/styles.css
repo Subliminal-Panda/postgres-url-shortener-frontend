@@ -133,9 +133,9 @@ a:hover {
   align-items: center;
 }
 
-.add-url-container > .add-url-form > input {
+/* .add-url-container > .add-url-form > input {
   flex: 1;
-}
+} */
 
 input,
 button {
@@ -191,6 +191,14 @@ input:focus {
 
 input::placeholder {
   color: rgb(154, 130, 185);
+}
+
+.link-input {
+  width: calc(24vw + 13rem);
+}
+
+.url-input {
+  width: 41vw;
 }
 
 .warning,
