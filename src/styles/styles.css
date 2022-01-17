@@ -145,10 +145,9 @@ a:hover {
     color: rgb(154, 130, 185);
   }
 
-  .warning {
+  .warning, .warning:focus {
     background-color: rgb(255, 190, 230);
     border: .2rem solid rgb(255, 0, 157);
-
   }
 
   .warning::placeholder {
