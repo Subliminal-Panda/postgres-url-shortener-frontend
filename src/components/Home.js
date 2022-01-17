@@ -49,11 +49,15 @@ export default function Home() {
   // renders app on page:
   return (
     <div className="home">
-      <h1>Welcome to Tristan's Link Shortener!</h1>
+      <h1 className="main-title">Short Linker</h1>
       <div className="add-url-container">
         <AddUrl route={route} handleSubmitReload={handleSubmitReload} />
       </div>
-      <h2>{separateUrlKeys()}</h2>
+      <div className="column-headings columns">
+        <h1 className="column-one">URL:</h1>
+        <h1 className="column-two">Link:</h1>
+      </div>
+      <h2 className="columns">{separateUrlKeys()}</h2>
     </div>
   );
 }

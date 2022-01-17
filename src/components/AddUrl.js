@@ -3,16 +3,21 @@
 export default function AddUrl(props) {
   const { handleSubmitReload, route } = props;
 
+  const defaultURL = "URL to shorten:"
+  const defaultLink = "(Optional) custom link:"
+
   const [urlInput, setUrlInput] = useState("");
   const [customLinkInput, setCustomLinkInput] = useState("");
   const [urlClass, setUrlClass] = useState("");
   const [urlPlaceholder, setUrlPlaceholder] = useState(
-    "Enter a new URL:"
+    defaultURL
   );
   const [linkClass, setLinkClass] = useState("");
   const [linkPlaceholder, setLinkPlaceholder] = useState(
-    "Custom short link (optional):"
+    defaultLink
   );
+  const [submit, setSubmit] = useState("Send")
+
 
   // sends URL and custom link entered by user to database. If no custom link, database will generate a random 10-digit link.
   const handleSubmit = (event) => {
@@ -30,10 +35,16 @@ export default function AddUrl(props) {
       })
       // resets input fields to default values- ready for another URL and link!
         .then(() => {
+          setSubmit("Sent!")
+          setTimeout(() => {
+            setSubmit("Send")
+          }, 1000)
           setUrlClass("");
-          setUrlPlaceholder("Enter a new URL:");
           setUrlInput("");
+          setUrlPlaceholder(defaultURL);
+          setLinkClass("")
           setCustomLinkInput("");
+          setLinkPlaceholder(defaultLink);
           handleSubmitReload();
         })
         // informs the user (in URL input field) that there has been a problem.
@@ -44,7 +55,7 @@ export default function AddUrl(props) {
         //informs the user that they haven't entered a URL
     } else {
       setUrlClass("warning");
-      setUrlPlaceholder("You need a URL before you can submit.");
+      setUrlPlaceholder("You need a URL.");
     }
   };
 
@@ -52,11 +63,11 @@ export default function AddUrl(props) {
   const handleUrlChange = (event) => {
     if(!String(event).includes(" ")){
       setUrlClass("");
-      setUrlPlaceholder("Enter a new URL:")
+      setUrlPlaceholder(defaultURL)
       setUrlInput(event);
     } else {
       setUrlClass("warning");
-      setUrlPlaceholder("You can't enter a space in your URL. Sorry!")
+      setUrlPlaceholder("No spaces allowed.")
     }
   };
 
@@ -64,22 +75,22 @@ export default function AddUrl(props) {
   const handleCustomLinkChange = (event) => {
     if(!String(event).includes(" ")){
       setLinkClass("");
-      setLinkPlaceholder("Custom short link (optional):")
+      setLinkPlaceholder(defaultLink)
       setCustomLinkInput(event);
     } else {
       setLinkClass("warning");
-      setLinkPlaceholder("You can't enter a space in your Link. Sorry!")
+      setLinkPlaceholder("No spaces allowed.")
     }
   };
 
   // resets URL input field from "warning" state for normal input.
-  const handleClick = (field) => {
+  const handleFocus = (field) => {
     if(field === "url") {
       setUrlClass("");
-      setUrlPlaceholder("Enter a new URL:");
+      setUrlPlaceholder(defaultURL);
     } else {
       setLinkClass("");
-      setLinkPlaceholder("Custom short link (optional):");
+      setLinkPlaceholder(defaultLink);
     }
   };
 
@@ -91,7 +102,8 @@ export default function AddUrl(props) {
         type="text"
         placeholder={urlPlaceholder}
         value={urlInput}
-        onClick={() => handleClick('url')}
+        onFocus={() => handleFocus('url')}
+        onBlur={() => handleFocus('url')}
         onChange={(event) => handleUrlChange(event.target.value)}
       ></input>
       <input
@@ -99,11 +111,14 @@ export default function AddUrl(props) {
         className={linkClass}
         placeholder={linkPlaceholder}
         value={customLinkInput}
-        onClick={() => handleClick('link')}
+        onFocus={() => handleFocus('link')}
+        onBlur={() => handleFocus('link')}
         onChange={(event) => handleCustomLinkChange(event.target.value)}
       ></input>
       <button className="form-submit" type="submit">
-        Submit Url
+        <p>
+          {submit}
+        </p>
       </button>
     </form>
   );

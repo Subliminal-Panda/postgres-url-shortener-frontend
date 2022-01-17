@@ -4,6 +4,8 @@ export default function Url(props) {
   const { setSubmitted, route } = props;
 
   const [url, setUrl] = useState("");
+  const [copyButton, setCopyButton] = useState("Copy");
+  const [deleteButton, setDeleteButton] = useState("Delete");
   const [shortRoute] = useState("tm57.xyz");
 
   // queries the database for the URL/link pair and deletes it if it exists:
@@ -11,11 +13,23 @@ export default function Url(props) {
     fetch(`${route}/nodirect/links/${key}`, { method: "DELETE" })
       .then((res) => res.json())
       .then((resData) => console.log(resData))
-      .then(() => setSubmitted())
+      .then(() => setDeleted())
       .catch((err) => console.log("Error deleting key:", err));
   };
 
-  function copyToClipboard(elementId) {
+  const setDeleted = () => {
+    setDeleteButton("Deleted!")
+    setSubmitted()
+    setTimeout(() => {
+      setDeleteButton("Delete")
+    }, 1000)
+  }
+
+  const copyToClipboard = (elementId) => {
+    setCopyButton("Copied!")
+    setTimeout(() => {
+      setCopyButton("Copy")
+    }, 1000)
     // create a "hidden" input
     let aux = document.createElement("input");
 
@@ -48,9 +62,9 @@ export default function Url(props) {
       {url ? (
         <h2 className="url-and-hashed-url">
           {/* the URL the user made a link for: */}
-          <p>URL:</p>
+          {/* <p>URL:</p> */}
           <a
-            className="shortened-url"
+            className="shortened-url column-one"
             href={`http://${shortRoute}/${props.link}`}
             target="_blank"
             rel="noreferrer"
@@ -58,9 +72,9 @@ export default function Url(props) {
             {url}
           </a>
           {/* the shortened slug given by the backend and paired with the URL: */}
-          <p>Link:</p>
+          {/* <p>Link:</p> */}
           <a
-            className="shortened-url"
+            className="shortened-link column-two"
             href={`http://${shortRoute}/${props.link}`}
             target="_blank"
             rel="noreferrer"
@@ -69,13 +83,18 @@ export default function Url(props) {
           </a>
           {/* a working "shortened" url the user can place in the address bar, similar to tinyurl: */}
           <button
+            className="copy-link column-three"
             onClick={() => copyToClipboard(`${shortRoute}/${props.link}`)}
           >
-            copy link to clipboard
+            <p>
+              {copyButton}
+            </p>
           </button>
           {/* deletes the current URL and its link from the database. */}
-          <button className="delete-link" onClick={() => deleteKey(props.id)}>
-            Delete Link
+          <button className="delete-link column-four" onClick={() => deleteKey(props.id)}>
+            <p>
+              {deleteButton}
+            </p>
           </button>
         </h2>
       ) : null}
