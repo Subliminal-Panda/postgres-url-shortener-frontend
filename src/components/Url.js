@@ -62,7 +62,6 @@ export default function Url(props) {
       {url ? (
         <h2 className="url-and-hashed-url">
           {/* the URL the user made a link for: */}
-          {/* <p>URL:</p> */}
           <a
             className="shortened-url column-one"
             href={`http://${shortRoute}/${props.link}`}
@@ -72,7 +71,6 @@ export default function Url(props) {
             {url}
           </a>
           {/* the shortened slug given by the backend and paired with the URL: */}
-          {/* <p>Link:</p> */}
           <a
             className="shortened-link column-two"
             href={`http://${shortRoute}/${props.link}`}

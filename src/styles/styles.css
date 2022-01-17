@@ -1,9 +1,5 @@
 ﻿html {
-<<<<<<< HEAD
   font-size: calc(.65vmin + .35vw);
-=======
-  font-size: 0.5vw;
->>>>>>> 48b9222d8414870c728480f2dcc9c64d386e68f8
 }
 
 *,
@@ -29,11 +25,7 @@ body {
 .app {
   height: 100%;
   width: 100%;
-<<<<<<< HEAD
   margin-top: 4rem;
-=======
-  margin-top: 2vh;
->>>>>>> 48b9222d8414870c728480f2dcc9c64d386e68f8
   display: flex;
   justify-content: center;
 }
@@ -46,13 +38,8 @@ body {
   align-items: center;
 }
 
-<<<<<<< HEAD
 .home > .main-title {
   font-size: 6rem;
-=======
-.home > h1 {
-  font-size: 2vw;
->>>>>>> 48b9222d8414870c728480f2dcc9c64d386e68f8
 }
 
 .url-keys-wrap {
@@ -68,12 +55,9 @@ a {
   text-decoration: none;
   color: rgb(0, 15, 153);
   border-bottom: 0.15rem solid rgba(0, 15, 153, 0.5);
-<<<<<<< HEAD
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-=======
->>>>>>> 48b9222d8414870c728480f2dcc9c64d386e68f8
 }
 
 a:hover {
@@ -81,7 +65,6 @@ a:hover {
   border-bottom: 0.15rem solid rgba(150, 0, 170, 0.5);
 }
 
-<<<<<<< HEAD
 .shortened-url {
   max-width: 34rem;
 }
@@ -128,17 +111,6 @@ a:hover {
   padding: 1rem;
   border-bottom: 0.18rem dotted rgba(0, 0, 0, 0.5);
   margin: 0.75rem 0.5rem;
-=======
-.url-and-hashed-url {
-  flex: 1;
-  display: grid;
-  grid-template-columns: max-content 35vw max-content 12vw max-content max-content;
-  gap: 2rem;
-  justify-content: space-between;
-  padding: 1rem 0;
-  border-bottom: 0.18rem dotted rgba(0, 0, 0, 0.5);
-  margin: 0.75rem 0 0.5rem;
->>>>>>> 48b9222d8414870c728480f2dcc9c64d386e68f8
 }
 
 .url-and-hashed-url > * {
@@ -153,11 +125,8 @@ a:hover {
 }
 
 .add-url-container > .add-url-form {
-<<<<<<< HEAD
   width: 93rem;
   margin: 0 1.5rem 0 1.5rem;
-=======
->>>>>>> 48b9222d8414870c728480f2dcc9c64d386e68f8
   flex: 1;
   display: flex;
   justify-content: flex-start;
@@ -171,11 +140,7 @@ a:hover {
 
 input,
 button {
-<<<<<<< HEAD
   font-size: 2.25rem;
-=======
-  font-size: 1.5rem;
->>>>>>> 48b9222d8414870c728480f2dcc9c64d386e68f8
   font-weight: 700;
   margin: 0;
   border-radius: 1rem;
@@ -183,7 +148,6 @@ button {
 }
 
 button {
-<<<<<<< HEAD
   width: 8.5rem;
   display: flex;
   justify-content: center;
@@ -194,62 +158,35 @@ button {
   border: 0.25rem solid rgb(0, 149, 168);
 }
 
-=======
-  padding: 0.4rem 1rem;
-  cursor: pointer;
-  background-color: rgb(179, 255, 226);
-  border: 0.2rem solid rgb(0, 149, 168);
-}
->>>>>>> 48b9222d8414870c728480f2dcc9c64d386e68f8
 button:hover,
 button:active,
 button:focus {
   color: rgb(0, 4, 44);
   background-color: rgb(213, 214, 255);
-<<<<<<< HEAD
   border: 0.25rem solid rgb(0, 4, 236);
-=======
-  border: 0.2rem solid rgb(0, 4, 236);
->>>>>>> 48b9222d8414870c728480f2dcc9c64d386e68f8
 }
 
 .delete-link {
   background-color: rgb(255, 190, 230);
-<<<<<<< HEAD
   border: 0.25rem solid rgb(255, 0, 157);
-=======
-  border: 0.2rem solid rgb(255, 0, 157);
->>>>>>> 48b9222d8414870c728480f2dcc9c64d386e68f8
 }
 .delete-link:hover,
 .delete-link:active,
 .delete-link:focus {
   color: rgb(0, 5, 61);
   background-color: rgb(253, 204, 255);
-<<<<<<< HEAD
   border: 0.25rem solid rgb(155, 0, 226);
-=======
-  border: 0.2rem solid rgb(155, 0, 226);
->>>>>>> 48b9222d8414870c728480f2dcc9c64d386e68f8
 }
 
 input {
   background-color: rgb(240, 242, 245);
-<<<<<<< HEAD
   border: 0.25rem solid rgb(85, 85, 85);
-=======
-  border: 0.2rem solid rgb(85, 85, 85);
->>>>>>> 48b9222d8414870c728480f2dcc9c64d386e68f8
   padding: 0.4rem 0.6rem;
   cursor: text;
 }
 input:focus {
   background-color: rgb(255, 255, 255);
-<<<<<<< HEAD
   border: 0.25rem solid rgb(60, 64, 255);
-=======
-  border: 0.2rem solid rgb(60, 64, 255);
->>>>>>> 48b9222d8414870c728480f2dcc9c64d386e68f8
 }
 
 input::placeholder {
