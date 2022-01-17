@@ -36,10 +36,10 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+  }
 
-    h1 {
-        font-size: 2vw;
-    }
+  .home > h1 {
+      font-size: 2vw;
   }
 
   .url-keys-wrap {
@@ -50,19 +50,18 @@
     text-justify: center;
   }
 
-  .url {
-    a {
-        width: max-content;
-        text-decoration: none;
-        color: rgb(0, 15, 153);
-        border-bottom: .15rem solid rgba(0, 15, 153, 0.3);
+.url > a {
+      width: max-content;
+      text-decoration: none;
+      color: rgb(0, 15, 153);
+      border-bottom: .15rem solid rgba(0, 15, 153, 0.3);
 
-        &:hover {
-            color: rgb(150, 0, 170);
-            border-bottom: .15rem solid rgba(150, 0, 170, .3);
-        }
     }
-  }
+
+  .url > a:hover {
+    color: rgb(150, 0, 170);
+    border-bottom: .15rem solid rgba(150, 0, 170, .3);
+}
 
   .url-and-hashed-url {
     flex: 1;
@@ -73,11 +72,11 @@
     padding: 1rem 0;
     border-bottom: .18rem dotted rgba(0,0,0,.5);
     margin: .75rem 0 .5rem;
+  }
 
-    * {
-        display: flex;
-        align-items: center;
-    }
+  .url-and-hashed-url > * {
+      display: flex;
+      align-items: center;
   }
 
   .shortened-url {
@@ -88,18 +87,19 @@
     margin: 2rem 0;
     width: 100%;
     display: flex;
-    .add-url-form {
-        flex: 1;
-        display: flex;
-        justify-content: flex-start;
-        gap: 2rem;
-        align-items: center;
-
-        input {
-            flex: 1;
-        }
-    }
   }
+
+  .add-url-container > .add-url-form {
+      flex: 1;
+      display: flex;
+      justify-content: flex-start;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .add-url-container > .add-url-form > input {
+        flex: 1;
+    }
 
   input, button {
     font-size: 1.5rem;
@@ -115,22 +115,22 @@
     background-color: rgb(179, 255, 226);
     border: .2rem solid rgb(0, 149, 168);
 
-    &:hover, &:active, &:focus {
-        color:rgb(0, 4, 44);
-        background-color: rgb(213, 214, 255);
-        border: .2rem solid rgb(0, 4, 236);
-    }
+  }
+  button:hover, button:active, button:focus {
+      color:rgb(0, 4, 44);
+      background-color: rgb(213, 214, 255);
+      border: .2rem solid rgb(0, 4, 236);
   }
 
   .delete-link {
     background-color: rgb(255, 190, 230);
     border: .2rem solid rgb(255, 0, 157);
 
-    &:hover, &:active, &:focus {
-        color:rgb(0, 5, 61);
-        background-color: rgb(253, 204, 255);
-        border: .2rem solid rgb(155, 0, 226);
-    }
+  }
+  .delete-link:hover, .delete-link:active, .delete-link:focus {
+      color:rgb(0, 5, 61);
+      background-color: rgb(253, 204, 255);
+      border: .2rem solid rgb(155, 0, 226);
   }
 
   input {
@@ -139,23 +139,24 @@
     padding: .4rem .6rem;
     cursor: text;
 
-    &:focus {
-        background-color: rgb(255, 255, 255);
-        border: .2rem solid rgb(60, 64, 255);
-    }
+  }
+  input:focus {
+      background-color: rgb(255, 255, 255);
+      border: .2rem solid rgb(60, 64, 255);
+  }
 
-    &::placeholder {
-      color: rgb(154, 130, 185);
-    }
+  input::placeholder {
+    color: rgb(154, 130, 185);
   }
 
   .warning {
     background-color: rgb(255, 190, 230);
     border: .2rem solid rgb(255, 0, 157);
 
-    &::placeholder {
-      color: black;
-    }
+  }
+
+  .warning::placeholder {
+    color: black;
   }
 
   .user-direct-page {
