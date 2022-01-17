@@ -5,9 +5,13 @@ export default function AddUrl(props) {
 
   const [urlInput, setUrlInput] = useState("");
   const [customLinkInput, setCustomLinkInput] = useState("");
-  const [inputClass, setInputClass] = useState("");
-  const [inputUrlPlaceholder, setInputUrlPlaceholder] = useState(
+  const [urlClass, setUrlClass] = useState("");
+  const [urlPlaceholder, setUrlPlaceholder] = useState(
     "Enter a new URL:"
+  );
+  const [linkClass, setLinkClass] = useState("");
+  const [linkPlaceholder, setLinkPlaceholder] = useState(
+    "Custom short link (optional):"
   );
 
   // sends URL and custom link entered by user to database. If no custom link, database will generate a random 10-digit link.
@@ -26,55 +30,76 @@ export default function AddUrl(props) {
       })
       // resets input fields to default values- ready for another URL and link!
         .then(() => {
-          setInputClass("");
-          setInputUrlPlaceholder("Enter a new URL:");
+          setUrlClass("");
+          setUrlPlaceholder("Enter a new URL:");
           setUrlInput("");
           setCustomLinkInput("");
           handleSubmitReload();
         })
         // informs the user (in URL input field) that there has been a problem.
         .catch(() => {
-          setInputClass("warning");
-          setInputUrlPlaceholder("An error occurred during post request");
+          setUrlClass("warning");
+          setUrlPlaceholder("An error occurred during post request");
         });
         //informs the user that they haven't entered a URL
     } else {
-      setInputClass("warning");
-      setInputUrlPlaceholder("You need a URL before you can submit.");
+      setUrlClass("warning");
+      setUrlPlaceholder("You need a URL before you can submit.");
     }
   };
 
   // updates URL field with user input
   const handleUrlChange = (event) => {
-    setUrlInput(event);
+    if(!String(event).includes(" ")){
+      setUrlClass("");
+      setUrlPlaceholder("Enter a new URL:")
+      setUrlInput(event);
+    } else {
+      setUrlClass("warning");
+      setUrlPlaceholder("You can't enter a space in your URL. Sorry!")
+    }
   };
 
   // updates custom link field with user input
   const handleCustomLinkChange = (event) => {
-    setCustomLinkInput(event);
+    if(!String(event).includes(" ")){
+      setLinkClass("");
+      setLinkPlaceholder("Custom short link (optional):")
+      setCustomLinkInput(event);
+    } else {
+      setLinkClass("warning");
+      setLinkPlaceholder("You can't enter a space in your Link. Sorry!")
+    }
   };
 
   // resets URL input field from "warning" state for normal input.
-  const handleClick = () => {
-    setInputClass("");
-    setInputUrlPlaceholder("Enter a new URL:");
+  const handleClick = (field) => {
+    if(field === "url") {
+      setUrlClass("");
+      setUrlPlaceholder("Enter a new URL:");
+    } else {
+      setLinkClass("");
+      setLinkPlaceholder("Custom short link (optional):");
+    }
   };
 
   // renders URL submission fields and button
   return (
     <form className="add-url-form" onSubmit={(event) => handleSubmit(event)}>
       <input
-        className={inputClass}
+        className={urlClass}
         type="text"
-        placeholder={inputUrlPlaceholder}
+        placeholder={urlPlaceholder}
         value={urlInput}
-        onClick={() => handleClick()}
+        onClick={() => handleClick('url')}
         onChange={(event) => handleUrlChange(event.target.value)}
       ></input>
       <input
         type="text"
-        placeholder="Custom short link (optional):"
+        className={linkClass}
+        placeholder={linkPlaceholder}
         value={customLinkInput}
+        onClick={() => handleClick('link')}
         onChange={(event) => handleCustomLinkChange(event.target.value)}
       ></input>
       <button className="form-submit" type="submit">
