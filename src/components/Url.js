@@ -4,6 +4,7 @@ export default function Url(props) {
   const { setSubmitted, route } = props;
 
   const [url, setUrl] = useState("");
+  const [shortRoute] = useState("tm57.xyz");
 
   // queries the database for the URL/link pair and deletes it if it exists:
   const deleteKey = (key) => {
@@ -50,7 +51,7 @@ export default function Url(props) {
           <p>URL:</p>
           <a
             className="shortened-url"
-            href={`${route}/${props.link}`}
+            href={`http://${shortRoute}/${props.link}`}
             target="_blank"
             rel="noreferrer"
           >
@@ -60,15 +61,17 @@ export default function Url(props) {
           <p>Link:</p>
           <a
             className="shortened-url"
-            href={`${route}/${props.link}`}
+            href={`http://${shortRoute}/${props.link}`}
             target="_blank"
             rel="noreferrer"
           >
-            {`${route}/${props.link}`}
+            {`${shortRoute}/${props.link}`}
           </a>
           {/* a working "shortened" url the user can place in the address bar, similar to tinyurl: */}
-          <button onClick={() => copyToClipboard(`${route}/${props.link}`)}>
-            copy URL to clipboard
+          <button
+            onClick={() => copyToClipboard(`${shortRoute}/${props.link}`)}
+          >
+            copy link to clipboard
           </button>
           {/* deletes the current URL and its link from the database. */}
           <button className="delete-link" onClick={() => deleteKey(props.id)}>
