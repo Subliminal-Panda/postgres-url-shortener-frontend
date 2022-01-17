@@ -7,11 +7,11 @@ export default function AddUrl(props) {
   const defaultLink = "(Optional) custom link:"
 
   const [urlInput, setUrlInput] = useState("");
-  const [customLinkInput, setCustomLinkInput] = useState("");
   const [urlClass, setUrlClass] = useState("");
   const [urlPlaceholder, setUrlPlaceholder] = useState(
     defaultURL
-  );
+    );
+  const [linkInput, setLinkInput] = useState("");
   const [linkClass, setLinkClass] = useState("");
   const [linkPlaceholder, setLinkPlaceholder] = useState(
     defaultLink
@@ -30,27 +30,40 @@ export default function AddUrl(props) {
         },
         body: JSON.stringify({
           stored_url: urlInput,
-          stored_link: customLinkInput
+          stored_link: linkInput
         })
       })
-      // resets input fields to default values- ready for another URL and link!
-        .then(() => {
+      .then((res) => res.json())
+      .then((data) => {
+        if(data[0] === "New link added to database:") {
           setSubmit("Sent!")
           setTimeout(() => {
             setSubmit("Send")
           }, 1000)
+          // resets input fields to default values- ready for another URL and link:
           setUrlClass("");
           setUrlInput("");
           setUrlPlaceholder(defaultURL);
           setLinkClass("")
-          setCustomLinkInput("");
+          setLinkInput("");
           setLinkPlaceholder(defaultLink);
           handleSubmitReload();
-        })
-        // informs the user (in URL input field) that there has been a problem.
-        .catch(() => {
+          // informs the user (in link input field) that their link is taken.
+        } else if(data[0] === "Error: that link is already being used.") {
+          setLinkClass("warning");
+          setLinkInput("")
+          setLinkPlaceholder("Sorry, that link name is taken.");
+        }
+      })
+        // informs the user (in both input fields) that there has been a problem.
+        .catch((error) => {
+          console.log(error)
           setUrlClass("warning");
-          setUrlPlaceholder("An error occurred during post request");
+          setUrlPlaceholder("Sorry, there's been an error.");
+          setUrlInput("")
+          setLinkClass("warning");
+          setLinkPlaceholder("Sorry, there's been an error.");
+          setLinkInput("");
         });
         //informs the user that they haven't entered a URL
     } else {
@@ -76,7 +89,7 @@ export default function AddUrl(props) {
     if(!String(event).includes(" ")){
       setLinkClass("");
       setLinkPlaceholder(defaultLink)
-      setCustomLinkInput(event);
+      setLinkInput(event);
     } else {
       setLinkClass("warning");
       setLinkPlaceholder("No spaces allowed.")
@@ -110,7 +123,7 @@ export default function AddUrl(props) {
         type="text"
         className={linkClass}
         placeholder={linkPlaceholder}
-        value={customLinkInput}
+        value={linkInput}
         onFocus={() => handleFocus('link')}
         onBlur={() => handleFocus('link')}
         onChange={(event) => handleCustomLinkChange(event.target.value)}
