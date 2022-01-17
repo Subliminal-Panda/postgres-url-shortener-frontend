@@ -4,8 +4,8 @@ import Url from "./Url";
 
 export default function Home() {
   // optional substitute route for running in local/test environment:
-  const [route] = useState("http://127.0.0.1:5000");
-  // const [route] = useState("https://tm-url-shortener-backend.herokuapp.com");
+  // const [route] = useState("http://127.0.0.1:5000");
+  const [route] = useState("https://tm-url-shortener-backend.herokuapp.com");
   const [allUrlKeys, setAllUrlKeys] = useState([]);
   const [submitted, setSubmitted] = useState([]);
 
