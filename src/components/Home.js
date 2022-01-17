@@ -5,13 +5,13 @@ import Url from "./Url";
 export default function Home() {
   // optional substitute route for running in local/test environment:
   // const [route] = useState("http://127.0.0.1:5000");
-  const [route] = useState("https://tm-url-shortener-backend.herokuapp.com/");
+  const [route] = useState("https://tm-url-shortener-backend.herokuapp.com");
   const [allUrlKeys, setAllUrlKeys] = useState([]);
   const [submitted, setSubmitted] = useState([]);
 
   // queries database for list of all saved shrunken URL's:
   const getAllUrlKeys = () => {
-    fetch(`${route}/nodirect/links`, { method: "GET", mode: "no-cors" })
+    fetch(`${route}/nodirect/links`, { method: "GET" })
       .then((res) => res.json())
       .then((resData) => setAllUrlKeys(resData))
       .then(() => separateUrlKeys())
@@ -20,13 +20,15 @@ export default function Home() {
 
   // renders each saved URL/link/shrunken URL on the page (see URL component for rendering details):
   const separateUrlKeys = () => {
+    console.log("all url keys:", allUrlKeys)
     return allUrlKeys.map((key) => {
       return (
         <div className="url-keys-wrap" key={`url${key.id}`}>
           <Url
             setSubmitted={setSubmitted}
             route={route}
-            url={key.stored_link}
+            url={key.stored_url}
+            link={key.stored_link}
             id={key.id}
           />
         </div>
@@ -47,7 +49,7 @@ export default function Home() {
   // renders app on page:
   return (
     <div className="home">
-      <h1>Welcome to Tristan's Link Scrambler!</h1>
+      <h1>Welcome to Tristan's Link Shortener!</h1>
       <div className="add-url-container">
         <AddUrl route={route} handleSubmitReload={handleSubmitReload} />
       </div>

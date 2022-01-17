@@ -7,7 +7,7 @@ export default function Url(props) {
 
   // queries the database for the URL/link pair and deletes it if it exists:
   const deleteKey = (key) => {
-    fetch(`${route}/nodirect/links/${key}`, { method: "DELETE", mode: "no-cors" })
+    fetch(`${route}/nodirect/links/${key}`, { method: "DELETE" })
       .then((res) => res.json())
       .then((resData) => console.log(resData))
       .then(() => setSubmitted())
@@ -36,7 +36,7 @@ export default function Url(props) {
 
   // queries the database for URL paired with link when component mounts:
   useEffect(() => {
-    fetch(`${props.route}/nodirect/links/${props.url}`, { method: "GET", mode: "no-cors" })
+    fetch(`${props.route}/nodirect/links/${props.link}`, { method: "GET" })
       .then((res) => res.json())
       .then((data) => setUrl(data.stored_url))
       .catch((err) => console.log("Error converting your URL.", err));
@@ -50,7 +50,7 @@ export default function Url(props) {
           <p>URL:</p>
           <a
             className="shortened-url"
-            href={`${route}/${props.url}`}
+            href={`${route}/${props.link}`}
             target="_blank"
             rel="noreferrer"
           >
@@ -60,14 +60,14 @@ export default function Url(props) {
           <p>Link:</p>
           <a
             className="shortened-url"
-            href={`${route}/${props.url}`}
+            href={`${route}/${props.link}`}
             target="_blank"
             rel="noreferrer"
           >
-            {`${route}/${props.url}`}
+            {`${route}/${props.link}`}
           </a>
           {/* a working "shortened" url the user can place in the address bar, similar to tinyurl: */}
-          <button onClick={() => copyToClipboard(`${route}/${props.url}`)}>
+          <button onClick={() => copyToClipboard(`${route}/${props.link}`)}>
             copy URL to clipboard
           </button>
           {/* deletes the current URL and its link from the database. */}

@@ -50,23 +50,23 @@
     text-justify: center;
   }
 
-.url > a {
+a {
       width: max-content;
       text-decoration: none;
       color: rgb(0, 15, 153);
-      border-bottom: .15rem solid rgba(0, 15, 153, 0.3);
+      border-bottom: .15rem solid rgba(0, 15, 153, 0.5);
 
     }
 
-  .url > a:hover {
+a:hover {
     color: rgb(150, 0, 170);
-    border-bottom: .15rem solid rgba(150, 0, 170, .3);
+    border-bottom: .15rem solid rgba(150, 0, 170, .5);
 }
 
   .url-and-hashed-url {
     flex: 1;
     display: grid;
-    grid-template-columns: max-content 23vw max-content 36vw max-content max-content;
+    grid-template-columns: max-content 26vw max-content 40vw max-content max-content;
     gap: 2rem;
     justify-content: space-between;
     padding: 1rem 0;
@@ -77,10 +77,6 @@
   .url-and-hashed-url > * {
       display: flex;
       align-items: center;
-  }
-
-  .shortened-url {
-    text-decoration: underline;
   }
 
   .add-url-container {
