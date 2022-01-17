@@ -1,189 +1,5 @@
 ﻿html {
-<<<<<<< HEAD
-    font-size: .5vw;
-  }
-
-  *,
-  *::after,
-  *::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-    font-family: 'Capriola', sans-serif;
-    letter-spacing: .07rem;
-  }
-
-  body {
-    overflow-x: hidden;
-    font-weight: normal;
-
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  .app {
-    height: 100%;
-    width: 100%;
-    margin-top: 2vh;
-    display: flex;
-    justify-content: center;
-  }
-
-  .home {
-    width: max-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .home > h1 {
-      font-size: 2vw;
-  }
-
-  .url-keys-wrap {
-    width: max-content;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    text-justify: center;
-  }
-
-a {
-      width: max-content;
-      text-decoration: none;
-      color: rgb(0, 15, 153);
-      border-bottom: .15rem solid rgba(0, 15, 153, 0.5);
-
-    }
-
-a:hover {
-    color: rgb(150, 0, 170);
-    border-bottom: .15rem solid rgba(150, 0, 170, .5);
-}
-
-  .url-and-hashed-url {
-    flex: 1;
-    display: grid;
-    grid-template-columns: max-content 26vw max-content 40vw max-content max-content;
-    gap: 2rem;
-    justify-content: space-between;
-    padding: 1rem 0;
-    border-bottom: .18rem dotted rgba(0,0,0,.5);
-    margin: .75rem 0 .5rem;
-  }
-
-  .url-and-hashed-url > * {
-      display: flex;
-      align-items: center;
-  }
-
-  .add-url-container {
-    margin: 2rem 0;
-    width: 100%;
-    display: flex;
-  }
-
-  .add-url-container > .add-url-form {
-      flex: 1;
-      display: flex;
-      justify-content: flex-start;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .add-url-container > .add-url-form > input {
-        flex: 1;
-    }
-
-  input, button {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin: 0;
-    border-radius: 1rem;
-    outline: none;
-  }
-
-  button {
-    padding: .4rem 1rem;
-    cursor: pointer;
-    background-color: rgb(179, 255, 226);
-    border: .2rem solid rgb(0, 149, 168);
-
-  }
-  button:hover, button:active, button:focus {
-      color:rgb(0, 4, 44);
-      background-color: rgb(213, 214, 255);
-      border: .2rem solid rgb(0, 4, 236);
-  }
-
-  .delete-link {
-    background-color: rgb(255, 190, 230);
-    border: .2rem solid rgb(255, 0, 157);
-
-  }
-  .delete-link:hover, .delete-link:active, .delete-link:focus {
-      color:rgb(0, 5, 61);
-      background-color: rgb(253, 204, 255);
-      border: .2rem solid rgb(155, 0, 226);
-  }
-
-  input {
-    background-color: rgb(240, 242, 245);
-    border: .2rem solid rgb(85, 85, 85);
-    padding: .4rem .6rem;
-    cursor: text;
-
-  }
-  input:focus {
-      background-color: rgb(255, 255, 255);
-      border: .2rem solid rgb(60, 64, 255);
-  }
-
-  input::placeholder {
-    color: rgb(154, 130, 185);
-  }
-
-  .warning {
-    background-color: rgb(255, 190, 230);
-    border: .2rem solid rgb(255, 0, 157);
-
-  }
-
-  .warning::placeholder {
-    color: black;
-  }
-
-  .user-direct-page {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 15rem;
-  }
-
-  .user-directing-link {
-    font-size: 5rem;
-    color: black;
-    text-decoration: none;
-  }
-
-  .return-home-link {
-    font-size: 4.5rem;
-    color: blue;
-  }
-
-  .big-red-message {
-    padding: 3rem;
-    font-size: 3rem;
-    color: rgb(221, 0, 136);
-  }
-=======
-  font-size: .5vw;
+  font-size: 0.5vw;
 }
 
 *,
@@ -192,8 +8,8 @@ a:hover {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
-  font-family: 'Capriola', sans-serif;
-  letter-spacing: .07rem;
+  font-family: "Capriola", sans-serif;
+  letter-spacing: 0.07rem;
 }
 
 body {
@@ -223,7 +39,7 @@ body {
 }
 
 .home > h1 {
-    font-size: 2vw;
+  font-size: 2vw;
 }
 
 .url-keys-wrap {
@@ -235,32 +51,31 @@ body {
 }
 
 a {
-    width: max-content;
-    text-decoration: none;
-    color: rgb(0, 15, 153);
-    border-bottom: .15rem solid rgba(0, 15, 153, 0.5);
-
-  }
+  width: max-content;
+  text-decoration: none;
+  color: rgb(0, 15, 153);
+  border-bottom: 0.15rem solid rgba(0, 15, 153, 0.5);
+}
 
 a:hover {
   color: rgb(150, 0, 170);
-  border-bottom: .15rem solid rgba(150, 0, 170, .5);
+  border-bottom: 0.15rem solid rgba(150, 0, 170, 0.5);
 }
 
 .url-and-hashed-url {
   flex: 1;
   display: grid;
-  grid-template-columns: max-content 26vw max-content 40vw max-content max-content;
+  grid-template-columns: max-content 35vw max-content 12vw max-content max-content;
   gap: 2rem;
   justify-content: space-between;
   padding: 1rem 0;
-  border-bottom: .18rem dotted rgba(0,0,0,.5);
-  margin: .75rem 0 .5rem;
+  border-bottom: 0.18rem dotted rgba(0, 0, 0, 0.5);
+  margin: 0.75rem 0 0.5rem;
 }
 
 .url-and-hashed-url > * {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .add-url-container {
@@ -270,18 +85,19 @@ a:hover {
 }
 
 .add-url-container > .add-url-form {
-    flex: 1;
-    display: flex;
-    justify-content: flex-start;
-    gap: 2rem;
-    align-items: center;
-  }
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+  align-items: center;
+}
 
-  .add-url-container > .add-url-form > input {
-      flex: 1;
-  }
+.add-url-container > .add-url-form > input {
+  flex: 1;
+}
 
-input, button {
+input,
+button {
   font-size: 1.5rem;
   font-weight: 700;
   margin: 0;
@@ -290,48 +106,50 @@ input, button {
 }
 
 button {
-  padding: .4rem 1rem;
+  padding: 0.4rem 1rem;
   cursor: pointer;
   background-color: rgb(179, 255, 226);
-  border: .2rem solid rgb(0, 149, 168);
-
+  border: 0.2rem solid rgb(0, 149, 168);
 }
-button:hover, button:active, button:focus {
-    color:rgb(0, 4, 44);
-    background-color: rgb(213, 214, 255);
-    border: .2rem solid rgb(0, 4, 236);
+button:hover,
+button:active,
+button:focus {
+  color: rgb(0, 4, 44);
+  background-color: rgb(213, 214, 255);
+  border: 0.2rem solid rgb(0, 4, 236);
 }
 
 .delete-link {
   background-color: rgb(255, 190, 230);
-  border: .2rem solid rgb(255, 0, 157);
-
+  border: 0.2rem solid rgb(255, 0, 157);
 }
-.delete-link:hover, .delete-link:active, .delete-link:focus {
-    color:rgb(0, 5, 61);
-    background-color: rgb(253, 204, 255);
-    border: .2rem solid rgb(155, 0, 226);
+.delete-link:hover,
+.delete-link:active,
+.delete-link:focus {
+  color: rgb(0, 5, 61);
+  background-color: rgb(253, 204, 255);
+  border: 0.2rem solid rgb(155, 0, 226);
 }
 
 input {
   background-color: rgb(240, 242, 245);
-  border: .2rem solid rgb(85, 85, 85);
-  padding: .4rem .6rem;
+  border: 0.2rem solid rgb(85, 85, 85);
+  padding: 0.4rem 0.6rem;
   cursor: text;
-
 }
 input:focus {
-    background-color: rgb(255, 255, 255);
-    border: .2rem solid rgb(60, 64, 255);
+  background-color: rgb(255, 255, 255);
+  border: 0.2rem solid rgb(60, 64, 255);
 }
 
 input::placeholder {
   color: rgb(154, 130, 185);
 }
 
-.warning, .warning:focus {
+.warning,
+.warning:focus {
   background-color: rgb(255, 190, 230);
-  border: .2rem solid rgb(255, 0, 157);
+  border: 0.2rem solid rgb(255, 0, 157);
 }
 
 .warning::placeholder {
@@ -364,4 +182,3 @@ input::placeholder {
   font-size: 3rem;
   color: rgb(221, 0, 136);
 }
->>>>>>> fixed
