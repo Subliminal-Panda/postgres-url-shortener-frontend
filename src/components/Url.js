@@ -19,7 +19,7 @@ export default function Url(props) {
 
   const setDeleted = () => {
     setDeleteButton("Deleted!")
-    setSubmitted()
+    setSubmitted(true)
     setTimeout(() => {
       setDeleteButton("Delete")
     }, 1000)
