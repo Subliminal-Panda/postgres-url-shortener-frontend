@@ -7,7 +7,7 @@ export default function Home() {
   // const [route] = useState("http://127.0.0.1:5000");
   const [route] = useState("https://tm-url-shortener-backend.herokuapp.com");
   const [allUrlKeys, setAllUrlKeys] = useState([]);
-  const [submitted, setSubmitted] = useState([]);
+  const [submitted, setSubmitted] = useState(true);
 
   // queries database for list of all saved shrunken URL's:
   const getAllUrlKeys = () => {
@@ -15,12 +15,10 @@ export default function Home() {
       .then((res) => res.json())
       .then((resData) => setAllUrlKeys(resData))
       .then(() => separateUrlKeys())
-      .catch((err) => console.log("Error retrieving all URLs.", err));
   };
 
   // renders each saved URL/link/shrunken URL on the page (see URL component for rendering details):
   const separateUrlKeys = () => {
-    console.log("all url keys:", allUrlKeys)
     return allUrlKeys.map((key) => {
       return (
         <div className="url-keys-wrap" key={`url${key.id}`}>
@@ -42,8 +40,10 @@ export default function Home() {
   };
 
   useEffect(() => {
-    getAllUrlKeys();
-    setSubmitted(false);
+    if(submitted === true) {
+      getAllUrlKeys();
+      setSubmitted(false);
+    }
   }, [submitted]);
 
   // renders app on page:

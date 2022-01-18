@@ -16,7 +16,7 @@ export default function AddUrl(props) {
   const [linkPlaceholder, setLinkPlaceholder] = useState(
     defaultLink
   );
-  const [submit, setSubmit] = useState("Send")
+  const [submit, setSubmit] = useState("Make")
 
 
   // sends URL and custom link entered by user to database. If no custom link, database will generate a random 10-digit link.
@@ -38,7 +38,7 @@ export default function AddUrl(props) {
         if(data[0] === "New link added to database:") {
           setSubmit("Sent!")
           setTimeout(() => {
-            setSubmit("Send")
+            setSubmit("Make")
           }, 1000)
           // resets input fields to default values- ready for another URL and link:
           setUrlClass("");
