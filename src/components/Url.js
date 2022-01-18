@@ -12,10 +12,9 @@ export default function Url(props) {
   const deleteKey = (key) => {
     fetch(`${route}/nodirect/links/${key}`, { method: "DELETE" })
       .then((res) => res.json())
-      .then((resData) => console.log(resData))
       .then(() => setDeleted())
-      .catch((err) => console.log("Error deleting key:", err));
   };
+
   // tells the user their link was successfully deleted:
   const setDeleted = () => {
     setDeleteButton("Deleted!")
@@ -24,6 +23,7 @@ export default function Url(props) {
       setDeleteButton("Delete")
     }, 1000)
   }
+
   // copies short URL to user's clipboard:
   const copyToClipboard = (elementId) => {
     setCopyButton("Copied!")
@@ -54,7 +54,6 @@ export default function Url(props) {
     fetch(`${props.route}/nodirect/links/${props.link}`, { method: "GET" })
       .then((res) => res.json())
       .then((data) => setUrl(data.stored_url))
-      .catch((err) => console.log("Error converting your URL.", err));
   }, []);
 
   return (

@@ -57,7 +57,7 @@ export default function AddUrl(props) {
       })
         // informs the user (in both input fields) that there has been a problem.
         .catch((error) => {
-          console.log(error)
+          (error)
           setUrlClass("warning");
           setUrlPlaceholder("Sorry, there's been an error.");
           setUrlInput("")
