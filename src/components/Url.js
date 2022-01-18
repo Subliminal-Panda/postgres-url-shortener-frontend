@@ -16,7 +16,7 @@ export default function Url(props) {
       .then(() => setDeleted())
       .catch((err) => console.log("Error deleting key:", err));
   };
-
+  // tells the user their link was successfully deleted:
   const setDeleted = () => {
     setDeleteButton("Deleted!")
     setSubmitted(true)
@@ -24,7 +24,7 @@ export default function Url(props) {
       setDeleteButton("Delete")
     }, 1000)
   }
-
+  // copies short URL to user's clipboard:
   const copyToClipboard = (elementId) => {
     setCopyButton("Copied!")
     setTimeout(() => {
