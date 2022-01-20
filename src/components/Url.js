@@ -1,16 +1,16 @@
 ﻿import React, { useState, useEffect } from "react";
 
 export default function Url(props) {
-  const { setSubmitted, route } = props;
+  const { setSubmitted, route, url, link, user } = props;
 
-  const [url, setUrl] = useState("");
+  const [retrievedUrl, setRetrievedUrl] = useState("");
   const [copyButton, setCopyButton] = useState("Copy");
   const [deleteButton, setDeleteButton] = useState("Delete");
   const [shortRoute] = useState("tm57.xyz");
 
   // queries the database for the URL/link pair and deletes it if it exists:
   const deleteKey = (key) => {
-    fetch(`${route}/nodirect/links/${key}`, { method: "DELETE" })
+    fetch(`${route}/app/links/${key}`, { method: "DELETE" })
       .then((res) => res.json())
       .then(() => setDeleted())
   };
@@ -51,19 +51,22 @@ export default function Url(props) {
 
   // queries the database for URL paired with link when component mounts:
   useEffect(() => {
-    fetch(`${props.route}/nodirect/links/${props.link}`, { method: "GET" })
+    fetch(`${route}/app/links/${link}`, { method: "GET" })
       .then((res) => res.json())
-      .then((data) => setUrl(data.stored_url))
+      .then((data) => {
+        console.log("retrieved data:", data, "link submitted:", link, "url:", data.stored_url)
+        setRetrievedUrl(data.stored_url)
+      })
   }, []);
 
   return (
     <div className="url">
-      {url ? (
+      {retrievedUrl ? (
         <h2 className="url-and-hashed-url">
           {/* the URL the user made a link for: */}
           <a
             className="shortened-url column-one"
-            href={`http://${shortRoute}/${props.link}`}
+            href={`http://${shortRoute}/${link}`}
             target="_blank"
             rel="noreferrer"
           >
@@ -72,16 +75,16 @@ export default function Url(props) {
           {/* the shortened slug given by the backend and paired with the URL: */}
           <a
             className="shortened-link column-two"
-            href={`http://${shortRoute}/${props.link}`}
+            href={`http://${shortRoute}/${link}`}
             target="_blank"
             rel="noreferrer"
           >
-            {`${shortRoute}/${props.link}`}
+            {`${shortRoute}/${link}`}
           </a>
           {/* a working "shortened" url the user can place in the address bar, similar to tinyurl: */}
           <button
             className="copy-link column-three"
-            onClick={() => copyToClipboard(`${shortRoute}/${props.link}`)}
+            onClick={() => copyToClipboard(`${shortRoute}/${link}`)}
           >
             <p>
               {copyButton}

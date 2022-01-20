@@ -2,24 +2,29 @@ import React, { useState, useEffect } from "react";
 import AddUrl from "./AddUrl";
 import Url from "./Url";
 
-export default function Home() {
-  // optional substitute route for running in local/test environment:
-  // const [route] = useState("http://127.0.0.1:5000");
-  const [route] = useState("https://tm-url-shortener-backend.herokuapp.com");
+export default function Home(props) {
+  const { route, user } = props
   const [allUrlKeys, setAllUrlKeys] = useState([]);
   const [submitted, setSubmitted] = useState(true);
 
   // queries database for list of all saved shrunken URL's:
-  const getAllUrlKeys = () => {
-    fetch(`${route}/nodirect/links`, { method: "GET" })
-      .then((res) => res.json())
-      .then((resData) => setAllUrlKeys(resData))
+  const getUserUrlKeys = () => {
+    fetch(`${route}/app/user/links/${user}`, { method: "GET" })
+    .then( res => res.json())
+    .then((resData) => {
+      console.log("jsonified response:", resData)
+      setAllUrlKeys(resData)
+      resData.map((retrieved) => {
+        console.log("retriieved:", retrieved)
+      })
+    })
       .then(() => separateUrlKeys())
   };
 
   // renders each saved URL/link/shrunken URL on the page (see URL component for rendering details):
   const separateUrlKeys = () => {
     return allUrlKeys.map((key) => {
+      console.log("Key:", key)
       return (
         <div className="url-keys-wrap" key={`url${key.id}`}>
           <Url
@@ -28,6 +33,7 @@ export default function Home() {
             url={key.stored_url}
             link={key.stored_link}
             id={key.id}
+            user={user}
           />
         </div>
       );
@@ -40,18 +46,18 @@ export default function Home() {
   };
 
   useEffect(() => {
-    if(submitted === true) {
-      getAllUrlKeys();
+    if(submitted === true && user !== "NOT_LOGGED_IN") {
+      getUserUrlKeys();
       setSubmitted(false);
     }
-  }, [submitted]);
+  }, [submitted, user]);
 
   // renders app on page:
   return (
     <div className="home">
-      <h1 className="main-title">Short Linker</h1>
+      <h1 className="main-title">Short Linkster</h1>
       <div className="add-url-container">
-        <AddUrl route={route} handleSubmitReload={handleSubmitReload} />
+        <AddUrl route={route} handleSubmitReload={handleSubmitReload} user={user} />
       </div>
       <div className="column-headings columns">
         <h1 className="column-one">URL:</h1>

@@ -1,7 +1,7 @@
 ﻿import React, { useState } from "react";
 
 export default function AddUrl(props) {
-  const { handleSubmitReload, route } = props;
+  const { handleSubmitReload, route, user } = props;
 
   const defaultURL = "URL to shorten:"
   const defaultLink = "Optional custom link:"
@@ -22,13 +22,15 @@ export default function AddUrl(props) {
   // sends URL and custom link entered by user to database. If no custom link, database will generate a random 10-digit link.
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(user, urlInput, linkInput)
     if (urlInput !== "") {
-      fetch(`${route}/nodirect/links`, {
+      fetch(`${route}/app/links`, {
         method: "POST",
         headers: {
           "content-type": "application/json"
         },
         body: JSON.stringify({
+          created_by: user,
           stored_url: urlInput,
           stored_link: linkInput
         })
