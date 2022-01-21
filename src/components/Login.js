@@ -32,7 +32,7 @@ export default function Login(props) {
         event.preventDefault();
         fetch( `${route}/app/user/sessions`, {
             method: "PATCH",
-            withCredentials: true,
+            // withCredentials: true,
             // mode: "no-cors",
             headers: {
                 "content-type": "application/json"
@@ -64,8 +64,8 @@ export default function Login(props) {
     const handleNewUserSubmit = (event) => {
         event.preventDefault();
         fetch( `${route}/app/user/add`, {
-            method: "POST",
-            withCredentials: true,
+            method: "POST"
+            // , withCredentials: true,
             // mode: "no-cors",
             headers: {
                 "content-type": "application/json"

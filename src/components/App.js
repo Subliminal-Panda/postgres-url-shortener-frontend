@@ -26,7 +26,7 @@ export default function App() {
 
   const checkLoginStatus = () => {
     if( user !== "NOT_LOGGED_IN") {
-      fetch(`${route}/app/auth/${user}`, { method: "GET", withCredentials: true, mode: "no-cors"}
+      fetch(`${route}/app/auth/${user}`, { method: "GET"}
       )
       .then((response) => response.json())
       .then((data) => {
