@@ -9,7 +9,7 @@ export default function Home(props) {
 
   // queries database for list of all saved shrunken URL's:
   const getUserUrlKeys = () => {
-    fetch(`${route}/app/user/links/${user}`, { method: "GET" })
+    fetch(`${route}/app/user/links/${user}`, { method: "GET", withCredentials: true })
     .then( res => res.json())
     .then((resData) => {
       console.log("jsonified response:", resData)

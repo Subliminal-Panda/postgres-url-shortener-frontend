@@ -133,12 +133,58 @@ a:hover {
   align-items: center;
 }
 
+.login-heading {
+  font-size: 3rem;
+  margin: 3rem;
+}
+
 .user-buttons {
   display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .new-user-button, .login-button {
   width: max-content;
+}
+
+#new-user-button, #new-user-button:focus {
+  background-color: transparent;
+  border-color: transparent;
+  text-decoration: underline;
+  /* border-bottom: .25rem solid black; */
+  /* border-radius: 0rem; */
+  margin: 1rem;
+  width: max-content;
+}
+#new-user-button:hover {
+  color:rgb(155, 0, 226)
+}
+
+.login-button {
+  margin: 1rem;
+}
+
+.name-entry {
+  margin: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  justify-content: center;
+  align-items: center;
+  /* margin: 2rem; */
 }
 
 input,

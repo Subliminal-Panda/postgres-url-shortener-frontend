@@ -10,7 +10,7 @@ export default function Url(props) {
 
   // queries the database for the URL/link pair and deletes it if it exists:
   const deleteKey = (key) => {
-    fetch(`${route}/app/links/${key}`, { method: "DELETE" })
+    fetch(`${route}/app/links/${key}`, { method: "DELETE", withCredentials: true })
       .then((res) => res.json())
       .then(() => setDeleted())
   };
@@ -51,7 +51,7 @@ export default function Url(props) {
 
   // queries the database for URL paired with link when component mounts:
   useEffect(() => {
-    fetch(`${route}/app/links/${link}`, { method: "GET" })
+    fetch(`${route}/app/links/${link}`, { method: "GET", withCredentials: true })
       .then((res) => res.json())
       .then((data) => {
         console.log("retrieved data:", data, "link submitted:", link, "url:", data.stored_url)

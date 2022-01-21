@@ -10,7 +10,7 @@ export default function Login(props) {
     const [passwordError, setPasswordError] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
     const [confirmPasswordError, setConfirmPasswordError] = useState("")
-    const [newUser, setNewUser] = useState(false)
+    const [newUser, setNewUser] = useState(true)
 
 
     const handleUserChange = (event) => {
@@ -32,6 +32,7 @@ export default function Login(props) {
         event.preventDefault();
         fetch( `${route}/app/user/sessions`, {
             method: "PATCH",
+            withCredentials: true,
             headers: {
                 "content-type": "application/json"
             },
@@ -40,7 +41,6 @@ export default function Login(props) {
                 password: password
             })
         }
-        // ,{ withCredentials: true }
         )
         .then( (response) => response.json())
         .then((data) => {
@@ -64,6 +64,7 @@ export default function Login(props) {
         event.preventDefault();
         fetch( `${route}/app/user/add`, {
             method: "POST",
+            withCredentials: true,
             headers: {
                 "content-type": "application/json"
             },
@@ -72,7 +73,6 @@ export default function Login(props) {
                 password: password
             })
         }
-        // ,{ withCredentials: true }
         )
         .then( (response) => response.json())
         .then((data) => {
@@ -103,16 +103,19 @@ export default function Login(props) {
 
     return (
         <div className="login-page">
-            <h1>LOGIN TO ACCESS ADMIN DASHBOARD</h1>
+            <h1 className='login-heading'>{!newUser ? "Login to access your links!" : "Create an account to start making links!"}</h1>
 
             <form
             onSubmit={ !newUser ? handleSubmit : handleNewUserSubmit }
             className="auth-form-wrapper"
+            autoComplete='off'
             >
-            <div className="form-group">
+
+            <div className="form-group name-entry">
                 <input
                     type="text"
-                    name="usernameinput"
+                    autoComplete='off'
+                    name="nameinput"
                     placeholder="Your username"
                     value={ username }
                     onChange={ handleUserChange }
@@ -123,7 +126,8 @@ export default function Login(props) {
             <div className="form-group">
                 <input
                     type="password"
-                    name="password"
+                    autoComplete='off'
+                    name="passwordinput"
                     placeholder="Your password"
                     value={ password }
                     onChange={ handlePasswordChange }
@@ -134,8 +138,9 @@ export default function Login(props) {
             {newUser ?
             <div className='form-group'>
                 <input
+                    autoComplete='off'
                     type="password"
-                    name="password"
+                    name="passwordinput"
                     placeholder="Confirm password"
                     value={ confirmPassword }
                     onChange={ handleConfirmPasswordChange }
@@ -146,7 +151,13 @@ export default function Login(props) {
 
                 <div className="user-buttons">
                     <button className="login-button" type="submit">{!newUser ? "Login" : "Create Account"}</button>
-                    <button className="new-user-button" type="button" onClick={toggleNewUserForm}>{!newUser ? "New user?" : "Returning user?"}</button>
+                    <button id="new-user-button" type="button" onClick={toggleNewUserForm}>
+                    {!newUser ?
+                        "I'm a new user"
+                        :
+                        "I'm a returning user"
+                    }
+            </button>
                 </div>
             </form>
         </div>

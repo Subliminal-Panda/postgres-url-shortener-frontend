@@ -9,8 +9,8 @@ export default function App() {
   const [loggedInStatus, setLoggedInStatus ] = useState("NOT_LOGGED_IN")
   const [user, setUser ] = useState("NOT_LOGGED_IN")
   // optional substitute route for running in local/test environment:
-  const [route] = useState("http://127.0.0.1:5000");
-  // const [route] = useState("https://tm-url-shortener-backend.herokuapp.com");
+  // const [route] = useState("http://127.0.0.1:5000");
+  const [route] = useState("https://tm-url-shortener-backend.herokuapp.com");
 
   const handleSuccessfulLogin = () => {
     setLoggedInStatus("LOGGED_IN")
@@ -26,8 +26,7 @@ export default function App() {
 
   const checkLoginStatus = () => {
     if( user !== "NOT_LOGGED_IN") {
-      fetch(`${route}/app/auth/${user}`, { method: "GET"}
-      // ,{ withCredentials: true }
+      fetch(`${route}/app/auth/${user}`, { method: "GET", withCredentials: true}
       )
       .then((response) => response.json())
       .then((data) => {
@@ -59,7 +58,8 @@ export default function App() {
       { loggedInStatus === "LOGGED_IN" ?
       <Home
       user={user}
-      route={route} /> :
+      route={route} />
+      :
       <Login
       handleSuccessfulLogin={handleSuccessfulLogin}
       handleSuccessfulLogout={handleSuccessfulLogout}
