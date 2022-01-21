@@ -51,7 +51,7 @@ export default function Url(props) {
 
   // queries the database for URL paired with link when component mounts:
   useEffect(() => {
-    fetch(`${route}/app/links/${link}`, { method: "GET", withCredentials: true, mode: "no-cors" })
+    fetch(`${route}/app/links/${link}`, { method: "GET", withCredentials: true })
       .then((res) => res.json())
       .then((data) => {
         console.log("retrieved data:", data, "link submitted:", link, "url:", data.stored_url)

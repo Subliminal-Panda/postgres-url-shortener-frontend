@@ -33,7 +33,7 @@ export default function Login(props) {
         fetch( `${route}/app/user/sessions`, {
             method: "PATCH",
             withCredentials: true,
-            mode: "no-cors",
+            // mode: "no-cors",
             headers: {
                 "content-type": "application/json"
             },
@@ -66,7 +66,7 @@ export default function Login(props) {
         fetch( `${route}/app/user/add`, {
             method: "POST",
             withCredentials: true,
-            mode: "no-cors",
+            // mode: "no-cors",
             headers: {
                 "content-type": "application/json"
             },

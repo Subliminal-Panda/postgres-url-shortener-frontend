@@ -27,7 +27,7 @@ export default function AddUrl(props) {
       fetch(`${route}/app/links`, {
         method: "POST",
         withCredentials: true,
-        mode: "no-cors",
+        // mode: "no-cors",
         headers: {
           "content-type": "application/json"
         },
