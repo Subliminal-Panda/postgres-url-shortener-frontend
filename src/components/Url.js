@@ -4,7 +4,7 @@ export default function Url(props) {
   const { setSubmitted, route, url, link, user } = props;
 
   const [retrievedUrl, setRetrievedUrl] = useState("");
-  const [copyButton, setCopyButton] = useState("Copy");
+  const [copyButton, setCopyButton] = useState("Copy URL");
   const [deleteButton, setDeleteButton] = useState("Delete");
   const [shortRoute] = useState("tm57.xyz");
 
@@ -70,25 +70,6 @@ export default function Url(props) {
     <div className="url">
       {retrievedUrl ? (
         <h2 className="url-and-hashed-url">
-          {/* the URL the user made a link for: */}
-          <a
-            className="shortened-url column-one"
-            href={`http://${shortRoute}/${link}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {url}
-          </a>
-          {/* the shortened slug given by the backend and paired with the URL: */}
-          <a
-            className="shortened-link column-two"
-            href={`http://${shortRoute}/${link}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {`${shortRoute}/${link}`}
-          </a>
-          {/* a working "shortened" url the user can place in the address bar, similar to tinyurl: */}
           <button
             className="copy-link column-three"
             onClick={() => copyToClipboard(`${shortRoute}/${link}`)}
@@ -97,12 +78,31 @@ export default function Url(props) {
               {copyButton}
             </p>
           </button>
-          {/* deletes the current URL and its link from the database. */}
           <button className="delete-link column-four" onClick={() => deleteKey(props.id)}>
             <p>
               {deleteButton}
             </p>
           </button>
+          <div className="url-and-link">
+            <p
+            className="shortened-url column-one"
+            >
+              {url}
+            </p>
+            <p className="shortened-link-row">
+              {"Short URL:"}
+              <a
+              className="shortened-link column-one"
+              href={`http://${shortRoute}/${link}`}
+              target="_blank"
+              rel="noreferrer"
+              >
+              {`${shortRoute}/${link}`}
+              </a>
+            </p>
+          </div>
+
+
         </h2>
       ) : null}
     </div>

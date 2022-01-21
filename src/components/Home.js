@@ -64,8 +64,6 @@ export default function Home(props) {
         <AddUrl route={route} handleSubmitReload={handleSubmitReload} user={user} />
       </div>
       <div className="column-headings columns">
-        <h1 className="column-one">URL:</h1>
-        <h1 className="column-two">Link:</h1>
       </div>
       <h2 className="columns">{separateUrlKeys()}</h2>
     </div>

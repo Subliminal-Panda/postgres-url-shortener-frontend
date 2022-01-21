@@ -49,7 +49,7 @@ body {
   text-justify: center;
 }
 
-a {
+.shortened-link {
   width: max-content;
   text-decoration: none;
   color: rgb(0, 15, 153);
@@ -65,35 +65,20 @@ a:hover {
 }
 
 .shortened-url {
-  max-width: 40.5vw;
+  max-width: 63.5vw;
+  overflow: hidden;
+  height: 4rem;
 }
 
 .shortened-link {
-  max-width: 23.5vw;
-}
-
-.column-one {
-  grid-area: "one";
-}
-
-.column-two {
-  grid-area: "two";
-}
-
-.column-three {
-  grid-area: "three";
-}
-
-.column-four {
-  grid-area: "four";
+  max-width: 43vw;
 }
 
 .column-headings {
   flex: 1;
   display: grid;
   font-size: 1.5rem;
-  grid-template-columns: 41vw 24vw 11rem 11rem;
-  grid-template-areas: "one two three four";
+  grid-template-columns: 32.5vw 32.5vw max-content;
   gap: 2rem;
   justify-content: left;
   padding: 0 1rem;
@@ -103,12 +88,11 @@ a:hover {
 .url-and-hashed-url {
   flex: 1;
   display: grid;
-  grid-template-columns: 41vw 24vw 11rem 11rem;
-  grid-template-areas: "one two three four";
+  grid-template-columns: max-content max-content 65vw;
   gap: 2rem;
   justify-content: left;
   padding: 1rem;
-  border-bottom: 0.18rem dotted rgba(0, 0, 0, 0.5);
+  border-top: 0.1rem solid black;
   margin: 0.75rem 0.5rem;
 }
 
@@ -133,6 +117,31 @@ a:hover {
   align-items: center;
 }
 
+.url-and-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.shortened-url {
+  font-family: "crimson pro";
+  font-size: 3.25rem;
+  align-self: flex-start;
+  border: none;
+  color:rgb(0, 4, 44);
+  margin: .75rem;
+}
+
+.shortened-link-row {
+  font-size: 2.5rem;
+  color: black;
+  align-self: flex-start;
+  margin: .25rem 0 0 3vw;
+  display: flex;
+  gap: 1rem;
+  border: none;
+}
+
 .login-page {
   display: flex;
   flex-direction: column;
@@ -141,42 +150,18 @@ a:hover {
 }
 
 .login-title {
-  font-size: 4.5rem;
+  font-size: 5.5rem;
 }
 
 .login-heading {
-  font-size: 3rem;
+  font-family: "crimson pro";
+  color:rgb(33, 0, 48);
+  letter-spacing: .07rem;
+  font-size: 3.75rem;
   margin: 3rem;
 }
 
-.user-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-  justify-content: center;
-  align-items: center;
-}
 
-.new-user-button, .login-button {
-  width: max-content;
-}
-
-#new-user-button, #new-user-button:focus {
-  background-color: transparent;
-  border-color: transparent;
-  text-decoration: underline;
-  /* border-bottom: .25rem solid black; */
-  /* border-radius: 0rem; */
-  margin: 1rem;
-  width: max-content;
-}
-#new-user-button:hover {
-  color:rgb(155, 0, 226)
-}
-
-.login-button {
-  margin: 1rem;
-}
 
 .name-entry {
   margin: 1.5rem;
@@ -195,11 +180,11 @@ a:hover {
   gap: .5rem;
   justify-content: center;
   align-items: center;
-  /* margin: 2rem; */
 }
 
 input,
 button {
+  height: max-content;
   font-size: 2.25rem;
   font-weight: 700;
   margin: 0;
@@ -209,7 +194,7 @@ button {
 
 button {
   color: black;
-  width: 8.5rem;
+  width: 11.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -225,6 +210,41 @@ button:focus {
   color: rgb(0, 4, 44);
   background-color: rgb(213, 214, 255);
   border: 0.25rem solid rgb(0, 4, 236);
+}
+
+button > p {
+  /* border-bottom: none; */
+  color: black;
+}
+
+.user-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-button {
+  width: max-content;
+}
+
+#new-user-button, #new-user-button:focus {
+  font-family: "crimson pro";
+  font-size: 3rem;
+  background-color: transparent;
+  border-color: transparent;
+  text-decoration: underline;
+  margin: 1rem;
+  width: max-content;
+}
+
+#new-user-button:hover {
+  color:rgb(155, 0, 226)
+}
+
+.login-button {
+  margin: 1rem;
 }
 
 .delete-link {

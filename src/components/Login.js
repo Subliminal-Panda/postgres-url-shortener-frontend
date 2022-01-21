@@ -117,7 +117,7 @@ export default function Login(props) {
             <div className="form-group name-entry">
                 <input
                     type="text"
-                    autoComplete='off'
+                    // autoComplete='off'
                     name="nameinput"
                     placeholder="Your username"
                     value={ username }
@@ -129,7 +129,7 @@ export default function Login(props) {
             <div className="form-group">
                 <input
                     type="password"
-                    autoComplete='off'
+                    // autoComplete='off'
                     name="passwordinput"
                     placeholder="Your password"
                     value={ password }
@@ -141,7 +141,7 @@ export default function Login(props) {
             {newUser ?
             <div className='form-group'>
                 <input
-                    autoComplete='off'
+                    // autoComplete='off'
                     type="password"
                     name="passwordinput"
                     placeholder="Confirm password"
