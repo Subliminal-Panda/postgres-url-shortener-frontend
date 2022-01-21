@@ -91,7 +91,7 @@ a:hover {
   grid-template-columns: max-content max-content 65vw;
   gap: 2rem;
   justify-content: left;
-  padding: 1rem;
+  padding: 2rem 0 .5rem 1rem;
   border-top: 0.1rem solid black;
   margin: 0.75rem 0.5rem;
 }
