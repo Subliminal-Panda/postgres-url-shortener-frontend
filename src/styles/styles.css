@@ -133,6 +133,17 @@ a:hover {
   align-items: center;
 }
 
+.login-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-title {
+  font-size: 4.5rem;
+}
+
 .login-heading {
   font-size: 3rem;
   margin: 3rem;

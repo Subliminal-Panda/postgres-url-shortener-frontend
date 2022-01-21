@@ -105,7 +105,8 @@ export default function Login(props) {
 
     return (
         <div className="login-page">
-            <h1 className='login-heading'>{!newUser ? "Login to access your links!" : "Create an account to start making links!"}</h1>
+            <h1 className='login-title'>Welcome to Short Linkster!</h1>
+            <h1 className='login-heading'>{!newUser ? "Login to access your short URLs." : "Create an account to start making short URLs."}</h1>
 
             <form
             onSubmit={ !newUser ? handleSubmit : handleNewUserSubmit }
