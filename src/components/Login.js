@@ -64,7 +64,7 @@ export default function Login(props) {
     const handleNewUserSubmit = (event) => {
         event.preventDefault();
         fetch( `${route}/app/user/add`, {
-            method: "POST"
+            method: "POST",
             // , withCredentials: true,
             // mode: "no-cors",
             headers: {
