@@ -51,6 +51,26 @@ export default function App() {
     }
   }
 
+  const renderPage = () => {
+    if(cookies.loggedInUser === "NOT_LOGGED_IN") {
+      return(
+        <Login
+        handleSuccessfulLogin={handleSuccessfulLogin}
+        handleSuccessfulLogout={handleSuccessfulLogout}
+        handleUnsuccessfulLogin={handleUnsuccessfulLogin}
+        setUser={setUser}
+        route={route} />
+      )
+    } else {
+      return(
+        <div>
+          <Home user={cookies.loggedInUser} route={route} />
+          <button className="logout-button" onClick={() => handleSuccessfulLogout()}>Log out</button>
+        </div>
+      )
+    }
+  }
+
   useEffect(() => {
     checkLoginStatus();
     if(cookies.loggedInUser !== user){
@@ -58,22 +78,14 @@ export default function App() {
     }
   },[user, handleSuccessfulLogin, cookies.loggedInUser])
 
+  useEffect(() => {
+    renderPage()
+  }, [])
+
   return (
     <div className="app">
       <CookiesProvider>
-        <h1>user: {cookies.loggedInUser}</h1>
-        { cookies.loggedInUser !== "NOT_LOGGED_IN" ?
-        <Home
-        user={cookies.loggedInUser}
-        route={route} />
-        :
-        <Login
-        handleSuccessfulLogin={handleSuccessfulLogin}
-        handleSuccessfulLogout={handleSuccessfulLogout}
-        handleUnsuccessfulLogin={handleUnsuccessfulLogin}
-        setUser={setUser}
-        route={route} />}
-        { cookies.loggedInUser !== "NOT_LOGGED_IN" ? <button className="logout-button" onClick={() => handleSuccessfulLogout()}>Log out</button> : null }
+        {renderPage()}
       </CookiesProvider>
     </div>
   );
