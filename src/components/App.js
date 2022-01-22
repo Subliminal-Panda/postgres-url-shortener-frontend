@@ -7,9 +7,9 @@ import Login from "./Login";
 
 export default function App() {
 
-  const [loggedInStatus, setLoggedInStatus ] = useState("NOT_LOGGED_IN")
-  const [user, setUser ] = useState("NOT_LOGGED_IN")
   const [ cookies, setCookie, removeCookie ] = useCookies(['loggedInUser']);
+  const [user, setUser ] = useState(cookies.loggedInUser)
+  const [loggedInStatus, setLoggedInStatus ] = useState(cookies.loggedInUser)
 
   // optional substitute route for running in local/test environment:
   // const [route] = useState("http://127.0.0.1:5000");
@@ -58,12 +58,10 @@ export default function App() {
 
   useEffect(() => {
     checkLoginStatus();
-    if(user !== "NOT_LOGGED_IN") {
+    if(cookies.loggedInUser !== user){
       setCookie("loggedInUser", user)
-    } else {
-      setCookie("loggedInUser", "NOT_LOGGED_IN")
     }
-  },[user, handleSuccessfulLogin])
+  },[user, handleSuccessfulLogin, cookies.loggedInUser])
 
   return (
     <div className="app">
