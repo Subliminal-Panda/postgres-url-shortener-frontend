@@ -61,7 +61,7 @@ export default function App() {
   return (
     <div className="app">
       <CookiesProvider>
-        { loggedInStatus === "LOGGED_IN" || cookies.loggedInUser !== "NOT_LOGGED_IN" ?
+        { cookies.loggedInUser !== "NOT_LOGGED_IN" ?
         <Home
         user={cookies.loggedInUser}
         route={route} />
@@ -72,7 +72,7 @@ export default function App() {
         handleUnsuccessfulLogin={handleUnsuccessfulLogin}
         setUser={setUser}
         route={route} />}
-        { loggedInStatus === "LOGGED_IN" || cookies.loggedInUser !== "NOT_LOGGED_IN" ? <button className="logout-button" onClick={() => handleSuccessfulLogout()}>Log out</button> : null }
+        { cookies.loggedInUser !== "NOT_LOGGED_IN" ? <button className="logout-button" onClick={() => handleSuccessfulLogout()}>Log out</button> : null }
       </CookiesProvider>
     </div>
   );

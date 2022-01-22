@@ -32,7 +32,7 @@ export default function Url(props) {
   const copyToClipboard = (elementId) => {
     setCopyButton("Copied!")
     setTimeout(() => {
-      setCopyButton("Copy")
+      setCopyButton("Copy URL")
     }, 1000)
     // create a "hidden" input
     let aux = document.createElement("input");
