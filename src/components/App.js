@@ -61,6 +61,7 @@ export default function App() {
   return (
     <div className="app">
       <CookiesProvider>
+        <h1>user: {cookies.loggedInUser}</h1>
         { cookies.loggedInUser !== "NOT_LOGGED_IN" ?
         <Home
         user={cookies.loggedInUser}
