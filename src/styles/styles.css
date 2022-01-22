@@ -216,6 +216,7 @@ button {
   cursor: pointer;
   background-color: rgb(179, 255, 226);
   border: 0.25rem solid rgb(0, 149, 168);
+  min-width: max-content;
 }
 
 button:hover,
