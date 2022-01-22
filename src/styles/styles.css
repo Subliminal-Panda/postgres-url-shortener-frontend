@@ -37,6 +37,20 @@ body {
   align-items: center;
 }
 
+.title-and-logout {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.logout-button {
+  position: absolute;
+  top: 5vh;
+  right: 3vw;
+  background-color: rgb(255, 190, 230);
+  border: 0.25rem solid rgb(255, 0, 157);
+}
+
 .home > .main-title {
   font-size: 6rem;
 }

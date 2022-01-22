@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { cookies, CookiesProvider, useCookies } from "react-cookie";
 
 import "../styles/styles.css";
 import Home from "./Home";
@@ -8,6 +9,8 @@ export default function App() {
 
   const [loggedInStatus, setLoggedInStatus ] = useState("NOT_LOGGED_IN")
   const [user, setUser ] = useState("NOT_LOGGED_IN")
+  const [ cookies, setCookie, removeCookie ] = useCookies(['loggedInUser']);
+
   // optional substitute route for running in local/test environment:
   // const [route] = useState("http://127.0.0.1:5000");
   const [route] = useState("https://tm-url-shortener-backend.herokuapp.com");
@@ -17,16 +20,20 @@ export default function App() {
   }
 
   const handleUnsuccessfulLogin = () => {
+    setUser("NOT_LOGGED_IN")
+    setCookie("loggedInUser", "NOT_LOGGED_IN")
     setLoggedInStatus("NOT_LOGGED_IN")
   }
 
   const handleSuccessfulLogout = () => {
+    setUser("NOT_LOGGED_IN")
+    setCookie("loggedInUser", "NOT_LOGGED_IN")
     setLoggedInStatus("NOT_LOGGED_IN")
   }
 
   const checkLoginStatus = () => {
-    if( user !== "NOT_LOGGED_IN") {
-      fetch(`${route}/app/auth/${user}`, { method: "GET"}
+    if( cookies.loggedInUser !== "NOT_LOGGED_IN") {
+      fetch(`${route}/app/auth/${cookies.loggedInUser}`, { method: "GET"}
       )
       .then((response) => response.json())
       .then((data) => {
@@ -51,21 +58,29 @@ export default function App() {
 
   useEffect(() => {
     checkLoginStatus();
+    if(user !== "NOT_LOGGED_IN") {
+      setCookie("loggedInUser", user)
+    } else {
+      setCookie("loggedInUser", "NOT_LOGGED_IN")
+    }
   },[user, handleSuccessfulLogin])
 
   return (
     <div className="app">
-      { loggedInStatus === "LOGGED_IN" ?
-      <Home
-      user={user}
-      route={route} />
-      :
-      <Login
-      handleSuccessfulLogin={handleSuccessfulLogin}
-      handleSuccessfulLogout={handleSuccessfulLogout}
-      handleUnsuccessfulLogin={handleUnsuccessfulLogin}
-      setUser={setUser}
-      route={route} />}
+      <CookiesProvider>
+        { loggedInStatus === "LOGGED_IN" || cookies.loggedInUser !== "NOT_LOGGED_IN" ?
+        <Home
+        user={cookies.loggedInUser}
+        route={route} />
+        :
+        <Login
+        handleSuccessfulLogin={handleSuccessfulLogin}
+        handleSuccessfulLogout={handleSuccessfulLogout}
+        handleUnsuccessfulLogin={handleUnsuccessfulLogin}
+        setUser={setUser}
+        route={route} />}
+        { loggedInStatus === "LOGGED_IN" || cookies.loggedInUser !== "NOT_LOGGED_IN" ? <button className="logout-button" onClick={() => handleSuccessfulLogout()}>log out</button> : null }
+      </CookiesProvider>
     </div>
   );
 }

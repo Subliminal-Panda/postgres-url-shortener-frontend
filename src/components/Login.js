@@ -10,7 +10,7 @@ export default function Login(props) {
     const [passwordError, setPasswordError] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
     const [confirmPasswordError, setConfirmPasswordError] = useState("")
-    const [newUser, setNewUser] = useState(true)
+    const [newUser, setNewUser] = useState(false)
 
 
     const handleUserChange = (event) => {

@@ -59,7 +59,7 @@ export default function Home(props) {
   // renders app on page:
   return (
     <div className="home">
-      <h1 className="main-title">Short Linkster</h1>
+        <h1 className="main-title">Short Linkster</h1>
       <div className="add-url-container">
         <AddUrl route={route} handleSubmitReload={handleSubmitReload} user={user} />
       </div>
