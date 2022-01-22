@@ -61,7 +61,6 @@ export default function Url(props) {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("retrieved data:", data, "link submitted:", link, "url:", data.stored_url)
         setRetrievedUrl(data.stored_url)
       })
   }, []);

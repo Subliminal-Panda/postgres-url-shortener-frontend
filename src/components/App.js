@@ -38,7 +38,6 @@ export default function App() {
       .then((response) => response.json())
       .then((data) => {
         const loggedIn = data.logged_in
-        console.log("logged in from db first?", loggedIn);
         if ( loggedIn && loggedInStatus === "LOGGED_IN" ) {
           return loggedIn;
         } else if ( loggedIn && loggedInStatus === "NOT_LOGGED_IN" ) {
@@ -46,12 +45,8 @@ export default function App() {
         } else if ( !loggedIn && loggedInStatus === "LOGGED_IN" ) {
           setLoggedInStatus("NOT_LOGGED_IN");
         }
-        console.log("loggedIn from db:", loggedIn)
-      }).then(() => {
-        console.log("loggedInStatus from app:", loggedInStatus)
       })
       .catch((error) => {
-        console.log( "Error", error );
       })
     }
   }

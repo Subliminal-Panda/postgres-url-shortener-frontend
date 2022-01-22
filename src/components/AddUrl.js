@@ -22,7 +22,6 @@ export default function AddUrl(props) {
   // sends URL and custom link entered by user to database. If no custom link, database will generate a random 10-digit link.
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(user, urlInput, linkInput)
     if (urlInput !== "") {
       fetch(`${route}/app/links`, {
         method: "POST",

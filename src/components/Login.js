@@ -45,7 +45,6 @@ export default function Login(props) {
         )
         .then( (response) => response.json())
         .then((data) => {
-            console.log("login data:", data)
             if( data === 'created' ) {
                 setUser(username)
                 handleSuccessfulLogin();
@@ -78,8 +77,6 @@ export default function Login(props) {
         )
         .then( (response) => response.json())
         .then((data) => {
-
-            console.log("data:", data)
             if( data === 'New user created' ) {
                 handleSuccessfulLogin();
                 setUser(username)

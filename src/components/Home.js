@@ -16,11 +16,7 @@ export default function Home(props) {
     })
     .then( res => res.json())
     .then((resData) => {
-      console.log("jsonified response:", resData)
       setAllUrlKeys(resData)
-      resData.map((retrieved) => {
-        console.log("retriieved:", retrieved)
-      })
     })
       .then(() => separateUrlKeys())
   };
@@ -28,7 +24,6 @@ export default function Home(props) {
   // renders each saved URL/link/shrunken URL on the page (see URL component for rendering details):
   const separateUrlKeys = () => {
     return allUrlKeys.map((key) => {
-      console.log("Key:", key)
       return (
         <div className="url-keys-wrap" key={`url${key.id}`}>
           <Url
