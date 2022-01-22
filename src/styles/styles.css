@@ -63,14 +63,14 @@ body {
   text-justify: center;
 }
 
-.shortened-link {
+.shortened-link, .shortened-url {
   width: max-content;
   text-decoration: none;
   color: rgb(0, 15, 153);
   border-bottom: 0.15rem solid rgba(0, 15, 153, 0.5);
-  /* overflow: hidden;
+  overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis; */
+  /* text-overflow: ellipsis; */
 }
 
 a:hover {
@@ -79,13 +79,13 @@ a:hover {
 }
 
 .shortened-url {
-  max-width: 63.5vw;
+  max-width: 62vw;
   overflow: hidden;
   height: 4rem;
 }
 
 .shortened-link {
-  max-width: 43vw;
+  max-width: 45vw;
 }
 
 .column-headings {
