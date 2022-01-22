@@ -45,8 +45,8 @@ body {
 
 .logout-button {
   position: absolute;
-  top: 5vh;
-  right: 3vw;
+  top: 3rem;
+  right: 2rem;
   background-color: rgb(255, 190, 230);
   border: 0.25rem solid rgb(255, 0, 157);
 }
@@ -68,9 +68,9 @@ body {
   text-decoration: none;
   color: rgb(0, 15, 153);
   border-bottom: 0.15rem solid rgba(0, 15, 153, 0.5);
-  overflow: hidden;
+  /* overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis; */
 }
 
 a:hover {
