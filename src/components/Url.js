@@ -89,7 +89,7 @@ export default function Url(props) {
               {url}
             </p>
             <p className="shortened-link-row">
-              {"Short URL:"}
+              {/* {"Short URL:"} */}
               <a
               className="shortened-link column-one"
               href={`http://${shortRoute}/${link}`}

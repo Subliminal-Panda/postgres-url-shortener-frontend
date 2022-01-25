@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+﻿import React, { useEffect, useState } from 'react';
 
 export default function Login(props) {
 
@@ -100,10 +100,16 @@ export default function Login(props) {
         }
     }
 
+    useEffect(() => {
+        setUsernameError("")
+        setPasswordError("")
+        setConfirmPasswordError("")
+    }, [newUser])
+
     return (
         <div className="login-page">
             <h1 className='login-title'>Welcome to Short Linkster!</h1>
-            <h1 className='login-heading'>{!newUser ? "Login to access your short URLs." : "Create an account to start making short URLs."}</h1>
+            <h1 className='login-heading'>{!newUser ? "Login to access your short URLs." : "Please create an account."}</h1>
 
             <form
             onSubmit={ !newUser ? handleSubmit : handleNewUserSubmit }
