@@ -1,11 +1,13 @@
 ﻿import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCopy, faTrash, faCheck } from "@fortawesome/free-solid-svg-icons";
 
 export default function Url(props) {
   const { setSubmitted, route, url, link, user } = props;
 
   const [retrievedUrl, setRetrievedUrl] = useState("");
-  const [copyButton, setCopyButton] = useState("Copy URL");
-  const [deleteButton, setDeleteButton] = useState("Delete");
+  const [copyButton, setCopyButton] = useState(faCopy);
+  const [deleteButton, setDeleteButton] = useState(faTrash);
   const [shortRoute] = useState("tm57.xyz");
 
   // queries the database for the URL/link pair and deletes it if it exists:
@@ -21,18 +23,15 @@ export default function Url(props) {
 
   // tells the user their link was successfully deleted:
   const setDeleted = () => {
-    setDeleteButton("Deleted!")
     setSubmitted(true)
-    setTimeout(() => {
-      setDeleteButton("Delete")
-    }, 1000)
+    setDeleteButton(faCheck)
   }
 
   // copies short URL to user's clipboard:
   const copyToClipboard = (elementId) => {
-    setCopyButton("Copied!")
+    setCopyButton(faCheck)
     setTimeout(() => {
-      setCopyButton("Copy URL")
+      setCopyButton(faCopy)
     }, 1000)
     // create a "hidden" input
     let aux = document.createElement("input");
@@ -69,19 +68,34 @@ export default function Url(props) {
     <div className="url">
       {retrievedUrl ? (
         <h2 className="url-and-hashed-url">
-          <button
+          {/* <button
             className="copy-link column-three"
             onClick={() => copyToClipboard(`${shortRoute}/${link}`)}
-          >
-            <p>
+          > */}
+            {/* <p>
               {copyButton}
-            </p>
-          </button>
-          <button className="delete-link column-four" onClick={() => deleteKey(props.id)}>
+            </p> */}
+            <FontAwesomeIcon
+            className="copy-link column-three"
+            onClick={() => copyToClipboard(`${shortRoute}/${link}`)}
+            icon={copyButton}
+            size="2x"
+             />
+          {/* </button> */}
+          <FontAwesomeIcon
+          className="delete-link column-four"
+          onClick={() => deleteKey(props.id)}
+          icon={deleteButton}
+          size="2x"
+          />
+          {/* <button
+          className="delete-link column-four"
+          onClick={() => deleteKey(props.id)}
+          >
             <p>
               {deleteButton}
             </p>
-          </button>
+          </button> */}
           <div className="url-and-link">
             <p
             className="shortened-url column-one"

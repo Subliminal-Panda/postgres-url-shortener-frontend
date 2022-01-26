@@ -24,6 +24,7 @@ body {
 .app {
   height: 100%;
   width: 100%;
+  min-width: 100%;
   margin-top: 4rem;
   display: flex;
   justify-content: center;
@@ -31,6 +32,7 @@ body {
 
 .home {
   width: max-content;
+  min-width: max-content;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -39,6 +41,7 @@ body {
 
 .title-and-logout {
   width: 100%;
+  min-width: 100%;
   display: flex;
   justify-content: center;
 }
@@ -57,6 +60,7 @@ body {
 
 .url-keys-wrap {
   width: max-content;
+  min-width: max-content;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -78,6 +82,7 @@ a:hover {
 }
 
 .shortened-url {
+  min-width: 62vw;
   max-width: 62vw;
   overflow: hidden;
   height: 4rem;
@@ -91,7 +96,7 @@ a:hover {
   flex: 1;
   display: grid;
   font-size: 1.5rem;
-  grid-template-columns: 32.5vw 32.5vw max-content;
+  grid-template-columns: max-content max-content max-content;
   gap: 2rem;
   justify-content: left;
   padding: 0 1rem;
@@ -101,9 +106,11 @@ a:hover {
 .url-and-hashed-url {
   flex: 1;
   display: grid;
-  grid-template-columns: max-content max-content 65vw;
+  grid-template-columns: max-content max-content max-content;
+  /* grid-template-columns: max-content max-content 65vw; */
   gap: 2rem;
   justify-content: left;
+  align-items: center;
   padding: 2rem 0 .5rem 1rem;
   border-top: 0.1rem solid black;
   margin: 0.75rem 0.5rem;
@@ -116,11 +123,13 @@ a:hover {
 
 .add-url-container {
   margin: 2rem 0;
+  min-width: 100%;
   width: 100%;
   display: flex;
 }
 
 .add-url-container > .add-url-form {
+  min-width: 93rem;
   width: 93rem;
   margin: 0 1.5rem 0 1.5rem;
   flex: 1;
@@ -208,6 +217,7 @@ button {
 button {
   color: black;
   width: 11.5rem;
+  min-width: max-content;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -215,7 +225,6 @@ button {
   cursor: pointer;
   background-color: rgb(179, 255, 226);
   border: 0.25rem solid rgb(0, 149, 168);
-  min-width: max-content;
 }
 
 button:hover,
@@ -240,6 +249,7 @@ button > p {
 
 .login-button {
   width: max-content;
+  min-width: max-content;
 }
 
 #new-user-button, #new-user-button:focus {
@@ -250,6 +260,7 @@ button > p {
   text-decoration: underline;
   margin: 1rem;
   width: max-content;
+  min-width: max-content;
 }
 
 #new-user-button:hover {
@@ -261,15 +272,27 @@ button > p {
 }
 
 .delete-link {
-  background-color: rgb(255, 190, 230);
-  border: 0.25rem solid rgb(255, 0, 157);
+  color: rgb(255, 61, 206);
+  min-width: 4rem;
+  max-width: 4rem;
 }
+
 .delete-link:hover,
 .delete-link:active,
 .delete-link:focus {
-  color: rgb(0, 5, 61);
-  background-color: rgb(253, 204, 255);
-  border: 0.25rem solid rgb(155, 0, 226);
+  color: rgb(204, 0, 255);
+}
+
+.copy-link {
+  min-width: 4rem;
+  max-width: 4rem;
+  color: rgb(0, 195, 255);
+}
+
+.copy-link:hover,
+.copy-link:active,
+.copy-link:focus {
+  color: rgb(0, 132, 255);
 }
 
 input {
@@ -288,6 +311,7 @@ input::placeholder {
 }
 
 .link-input {
+  min-width: calc(24vw + 13rem);
   width: calc(24vw + 13rem);
 }
 
@@ -306,6 +330,7 @@ input::placeholder {
 }
 
 .user-direct-page {
+  min-width: 100vw;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -341,6 +366,7 @@ input::placeholder {
   }
 
   .add-url-container > .add-url-form {
+    min-width: 90vw;
     width: 90vw;
     display: grid;
     grid-template-columns: auto auto;
@@ -348,12 +374,14 @@ input::placeholder {
   }
 
   .add-url-container > .add-url-form > .url-input {
+    min-width: 90vw;
     width: 90vw;
     grid-column: 1 / span 2;
     grid-row: 1;
   }
 
   .add-url-container > .add-url-form > .link-input {
+    min-width: 70vw;
     width: 70vw;
     grid-column: 1;
     grid-row: 2;
@@ -373,6 +401,7 @@ input::placeholder {
   }
 
   .form-group > input {
+    min-width: 80vw;
     width: 80vw;
   }
 
@@ -406,26 +435,33 @@ input::placeholder {
     grid-template-columns: max-content max-content max-content;
   }
   .copy-link {
-    font-size: 3.5rem;
+    margin: 0 1rem 0 1rem;
+    font-size: 10rem;
+    min-width: 8rem;
+    max-width: 8rem;
     order: 2;
   }
   .delete-link {
-    font-size: 3.5rem;
+    margin: 0 1rem 0 1rem;
+    font-size: 10rem;
+    min-width: 8rem;
+    max-width: 8rem;
     order: 3;
   }
 
   .url-and-link {
-    width: 55vw;
+    min-width: 70vw;
+    width: 70vw;
   }
 
   .shortened-url {
-    max-width: 54vw;
+    max-width: 69vw;
     font-size: 6rem;
     height: max-content;
   }
 
   .shortened-link {
-    max-width: 50vw;
+    max-width: 65vw;
     font-size: 4.25rem;
   }
 
