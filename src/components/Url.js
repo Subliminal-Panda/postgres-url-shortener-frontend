@@ -9,9 +9,11 @@ export default function Url(props) {
   const [copyButton, setCopyButton] = useState(faCopy);
   const [deleteButton, setDeleteButton] = useState(faTrash);
   const [shortRoute] = useState("tm57.xyz");
+  const [deleting, setDeleting] = useState(false);
 
   // queries the database for the URL/link pair and deletes it if it exists:
   const deleteKey = (key) => {
+    setDeleting(true)
     fetch(`${route}/app/links/${key}`, {
       method: "DELETE"
       // , withCredentials: true
@@ -24,7 +26,6 @@ export default function Url(props) {
   // tells the user their link was successfully deleted:
   const setDeleted = () => {
     setSubmitted(true)
-    setDeleteButton(faCheck)
   }
 
   // copies short URL to user's clipboard:
@@ -87,6 +88,7 @@ export default function Url(props) {
           onClick={() => deleteKey(props.id)}
           icon={deleteButton}
           size="2x"
+          spin={ deleting ? true : false }
           />
           {/* <button
           className="delete-link column-four"
