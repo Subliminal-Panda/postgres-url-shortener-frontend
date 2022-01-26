@@ -69,20 +69,12 @@ export default function Url(props) {
     <div className="url">
       {retrievedUrl ? (
         <h2 className="url-and-hashed-url">
-          {/* <button
-            className="copy-link column-three"
-            onClick={() => copyToClipboard(`${shortRoute}/${link}`)}
-          > */}
-            {/* <p>
-              {copyButton}
-            </p> */}
             <FontAwesomeIcon
             className="copy-link column-three"
             onClick={() => copyToClipboard(`${shortRoute}/${link}`)}
             icon={copyButton}
             size="2x"
              />
-          {/* </button> */}
           <FontAwesomeIcon
           className="delete-link column-four"
           onClick={() => deleteKey(props.id)}
@@ -90,14 +82,6 @@ export default function Url(props) {
           size="2x"
           spin={ deleting ? true : false }
           />
-          {/* <button
-          className="delete-link column-four"
-          onClick={() => deleteKey(props.id)}
-          >
-            <p>
-              {deleteButton}
-            </p>
-          </button> */}
           <div className="url-and-link">
             <p
             className="shortened-url column-one"

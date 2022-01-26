@@ -82,14 +82,14 @@ a:hover {
 }
 
 .shortened-url {
-  min-width: 62vw;
-  max-width: 62vw;
+  min-width: 82vw;
+  max-width: 82vw;
   overflow: hidden;
   height: 4rem;
 }
 
 .shortened-link {
-  max-width: 45vw;
+  max-width: 65vw;
 }
 
 .column-headings {
@@ -107,7 +107,6 @@ a:hover {
   flex: 1;
   display: grid;
   grid-template-columns: max-content max-content max-content;
-  /* grid-template-columns: max-content max-content 65vw; */
   gap: 2rem;
   justify-content: left;
   align-items: center;
@@ -455,6 +454,7 @@ input::placeholder {
   }
 
   .shortened-url {
+    min-width: 69vw;
     max-width: 69vw;
     font-size: 6rem;
     height: max-content;
