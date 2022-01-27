@@ -92,7 +92,7 @@ export default function Url(props) {
               {/* {"Short URL:"} */}
               <a
               className="shortened-link column-one"
-              href={`//${shortRoute}/${link}`}
+              href={`http://${shortRoute}/${link}`}
               target="_blank"
               rel="noreferrer"
               >
