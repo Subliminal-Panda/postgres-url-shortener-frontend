@@ -53,7 +53,6 @@ export default function App() {
   }
 
   const renderPage = () => {
-    console.log(cookies.loggedInUser);
     if(cookies.loggedInUser === "NOT_LOGGED_IN" || cookies.loggedInUser == " " || cookies.loggedInUser == undefined) {
       return(
         <Login
