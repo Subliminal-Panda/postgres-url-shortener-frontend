@@ -8,7 +8,8 @@ export default function Url(props) {
   const [retrievedUrl, setRetrievedUrl] = useState("");
   const [copyButton, setCopyButton] = useState(faCopy);
   const [deleteButton, setDeleteButton] = useState(faTrash);
-  const [shortRoute] = useState("https://www.57t.me");
+  const [shortRoute] = useState("57t.me");
+  const [routeTo] = useState("https://www.57t.me")
   const [deleting, setDeleting] = useState(false);
 
   // queries the database for the URL/link pair and deletes it if it exists:
@@ -92,11 +93,11 @@ export default function Url(props) {
               {/* {"Short URL:"} */}
               <a
               className="shortened-link column-one"
-              href={`${shortRoute}/${link}`}
+              href={`${routeTo}/${link}`}
               target="_blank"
               rel="noreferrer"
               >
-              {`${link}`}
+              {`${shortRoute}/${link}`}
               </a>
             </p>
           </div>
