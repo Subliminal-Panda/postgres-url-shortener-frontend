@@ -4,7 +4,6 @@ import { cookies, CookiesProvider, useCookies } from "react-cookie";
 import "../styles/styles.css";
 import Home from "./Home";
 import Login from "./Login";
-import https from "https";
 
 export default function App() {
 
