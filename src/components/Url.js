@@ -96,7 +96,7 @@ export default function Url(props) {
               target="_blank"
               rel="noreferrer"
               >
-              {`${shortRoute}/${link}`}
+              {`${link}`}
               </a>
             </p>
           </div>
