@@ -8,7 +8,7 @@ export default function Url(props) {
   const [retrievedUrl, setRetrievedUrl] = useState("");
   const [copyButton, setCopyButton] = useState(faCopy);
   const [deleteButton, setDeleteButton] = useState(faTrash);
-  const [shortRoute] = useState("57t.me");
+  const [shortRoute] = useState("https://www.57t.me");
   const [deleting, setDeleting] = useState(false);
 
   // queries the database for the URL/link pair and deletes it if it exists:
