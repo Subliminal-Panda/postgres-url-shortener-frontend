@@ -15,7 +15,7 @@ export default function App() {
   // const [route] = useState("https://127.0.0.1:5000");
   // const [route] = useState("https://tm-url-shortener-backend.herokuapp.com");
   // const [route] = useState("https://tm-url-shortener-backend-4371f05a959e.herokuapp.com/");
-  const [route] = useState("https://57t.me");
+  const [route] = useState("https://www.57t.me");
 
   const handleSuccessfulLogin = () => {
     setLoggedInStatus("LOGGED_IN")
