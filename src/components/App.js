@@ -4,6 +4,7 @@ import { cookies, CookiesProvider, useCookies } from "react-cookie";
 import "../styles/styles.css";
 import Home from "./Home";
 import Login from "./Login";
+import https from "https";
 
 export default function App() {
 
@@ -12,10 +13,10 @@ export default function App() {
   const [loggedInStatus, setLoggedInStatus ] = useState(cookies.loggedInUser)
 
   // optional substitute route for running in local/test environment:
-  // const [route] = useState("http://127.0.0.1:5000");
+  // const [route] = useState("https://127.0.0.1:5000");
   // const [route] = useState("https://tm-url-shortener-backend.herokuapp.com");
   // const [route] = useState("https://tm-url-shortener-backend-4371f05a959e.herokuapp.com/");
-  const [route] = useState("http://www.57t.me");
+  const [route] = useState("https://57t.me");
 
   const handleSuccessfulLogin = () => {
     setLoggedInStatus("LOGGED_IN")
@@ -35,7 +36,7 @@ export default function App() {
 
   const checkLoginStatus = () => {
     if( cookies.loggedInUser !== "NOT_LOGGED_IN") {
-      fetch(`${route}/app/auth/${cookies.loggedInUser}`, { method: "GET"}
+      fetch(`${route}/app/auth/${cookies.loggedInUser}`, { method: "GET" }
       )
       .then((response) => response.json())
       .then((data) => {
